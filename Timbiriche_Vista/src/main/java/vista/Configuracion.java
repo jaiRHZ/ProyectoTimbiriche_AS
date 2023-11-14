@@ -213,8 +213,8 @@ public class Configuracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnCancelar;
+    public javax.swing.JButton btnAceptar;
+    public javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnColorJ1;
     private javax.swing.JButton btnColorJ2;
     private javax.swing.JButton btnColorJ3;
