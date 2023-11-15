@@ -16,6 +16,15 @@ public class ControladorConfiguracion implements ActionListener {
     Tablero tablero;
 
     public ControladorConfiguracion() {
+        this.tablero = new Tablero();
+        this.configuracion = new Configuracion();
+        this.generarEventos();
+
+    }
+
+    public void generarEventos() {
+        this.configuracion.btnAceptar.addActionListener(this);
+        this.configuracion.btnCancelar.addActionListener(this);
     }
 
     @Override
