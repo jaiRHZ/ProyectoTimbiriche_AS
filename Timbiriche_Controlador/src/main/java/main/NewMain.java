@@ -30,6 +30,9 @@ public class NewMain {
         ControladorTablero controladorTablero = new ControladorTablero(20, jugadores);
 
         controladorTablero.iniciar();
+        
+        
+        
 
     }
 

@@ -22,6 +22,10 @@ public class ControladorConfiguracion implements ActionListener {
 
     }
 
+    public void iniciar() {
+        configuracion.setVisible(true);
+    }
+
     public void generarEventos() {
         this.configuracion.btnAceptar.addActionListener(this);
         this.configuracion.btnCancelar.addActionListener(this);
