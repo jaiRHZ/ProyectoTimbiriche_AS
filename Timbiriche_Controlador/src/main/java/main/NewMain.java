@@ -27,12 +27,9 @@ public class NewMain {
         jugadores.add(new Jugador("Herman"));
         jugadores.add(new Jugador("Jorge"));
 
-        ControladorTablero controladorTablero = new ControladorTablero(20, jugadores);
+        ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
 
         controladorTablero.iniciar();
-        
-        
-        
 
     }
 

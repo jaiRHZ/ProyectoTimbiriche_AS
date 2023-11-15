@@ -41,13 +41,8 @@ public class ControladorPanelTablero implements MouseListener {
     }
 
     public Punto seleccionarPunto(MouseEvent me) {
-        for (Punto punto : tableroData.getPuntos()) {
-            if (me.getX() >= punto.getX() - 10 && me.getX() <= punto.getX() + 10
-                    && me.getY() >= punto.getY() - 10 && me.getY() <= punto.getY() + 10) {
-                return punto;
-            }
-        }
-        return null;
+        Punto punto = new Punto(me.getX(), me.getY());
+        return tableroData.validarPunto(punto);
     }
 
     @Override
@@ -56,18 +51,23 @@ public class ControladorPanelTablero implements MouseListener {
             case MouseEvent.BUTTON1:
                 if (punto1 == null) {
                     this.punto1 = seleccionarPunto(me);
-                    tableroPanel.puntoA = punto1;
+                    if (punto1 != null) {
+                        tableroPanel.puntoA = punto1;
+                    }
                 } else if (punto2 == null) {
                     this.punto2 = seleccionarPunto(me);
-                    tableroPanel.puntoB = punto2;
-                    linea = new Linea(punto1, punto2);
-                    if (linea != null) {
-                        tableroPanel.generaLineas(linea);
+                    if (punto2 != null) {
+                        tableroPanel.puntoB = punto1;
+                        linea = new Linea(punto1, punto2);
+                        if (tableroData.validarLinea(linea)) {
+                            tableroPanel.generaLineas(linea);
+                        }
                         punto1 = null;
                         punto2 = null;
                         tableroPanel.puntoA = punto1;
                         tableroPanel.puntoB = punto2;
                     }
+
                 }
                 break;
             case MouseEvent.BUTTON3:
