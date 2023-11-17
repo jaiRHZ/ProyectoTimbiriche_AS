@@ -5,71 +5,51 @@
  */
 package vista;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.util.ArrayList;
-import java.util.List;
-import modelo.Linea;
-import modelo.Punto;
+import aplicacion.TableroData;
+import gestor.GestorTableroPanel;
+import observador.IObservador;
 
 /**
  *
  * @author HP
  */
-public class TableroPanel extends javax.swing.JPanel {
+public class TableroPanel extends javax.swing.JPanel implements IObservador {
 
-    private List<Punto> puntos;
-    private List<Linea> lineas;
-    private String tipoPintado;
-    public Punto puntoA;
-    public Punto puntoB;
+    private TableroData tableroData;
+    private GestorTableroPanel gestorTableroPanel;
 
     public TableroPanel() {
-        this.lineas = new ArrayList<>();
         initComponents();
+        this.gestorTableroPanel = new GestorTableroPanel();
     }
 
-    public void generarPuntos(List<Punto> puntos) {
-        this.puntos = puntos;
-        repaint();
-    }
+    public void cargarInformacion(TableroData tableroData) {
+        this.tableroData = tableroData;
 
-    public void generaLineas(Linea linea) {
-        tipoPintado = "generarLineas";
-        lineas.add(linea);
-        repaint();
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        if (lineas != null) {
-            Graphics2D g2d = (Graphics2D) g;
-            g2d.setStroke(new BasicStroke(5));
-            for (int i = 0; i < lineas.size(); i++) {
-                g.setColor(Color.ORANGE);
-                Punto puntoA = lineas.get(i).getPuntoA();
-                Punto puntoB = lineas.get(i).getPuntoB();
-                g.drawLine(puntoA.getX() + 10 / 2,
-                        puntoA.getY() + 10 / 2,
-                        puntoB.getX() + 10 / 2,
-                        puntoB.getY() + 10 / 2);
-            }
-        }
+        dibujarLineas(g);
+        dibujarPuntos(g);
 
-        for (int i = 0; i < puntos.size(); i++) {
-            g.setColor(Color.WHITE);
-            int posicionX = puntos.get(i).getX();
-            int posicionY = puntos.get(i).getY();
-            if (puntoA != null && puntoA.equals(puntos.get(i))
-                    || puntoB != null && puntoB.equals(puntos.get(i))) {
-                g.setColor(Color.GREEN);
-            }
-            g.fillOval(posicionX, posicionY, 10, 10);
-        }
+    }
 
+    private void dibujarPuntos(Graphics g) {
+        gestorTableroPanel.dibujarPuntos(g, tableroData.getPuntos(),
+                tableroData.getPuntoA(), tableroData.getPuntoB());
+    }
+
+    private void dibujarLineas(Graphics g) {
+        gestorTableroPanel.dibujarLineas(g, tableroData.getLineas());
+
+    }
+
+    @Override
+    public void actualizar() {
+        this.repaint();
     }
 
     /**
@@ -94,7 +74,6 @@ public class TableroPanel extends javax.swing.JPanel {
             .addGap(0, 500, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

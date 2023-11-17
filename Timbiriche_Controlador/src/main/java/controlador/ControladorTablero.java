@@ -10,9 +10,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JButton;
-import modelo.Jugador;
-import modelo.Punto;
-import modelo.TableroData;
+import dominio.Jugador;
+import dominio.Punto;
+import aplicacion.TableroData;
 import vista.Configuracion;
 import vista.Tablero;
 import vista.TableroPanel;
@@ -22,56 +22,67 @@ import vista.TableroPanel;
  * @author HP
  */
 public class ControladorTablero implements ActionListener {
-
+    
     Tablero tablero;
     Configuracion configuracion;
     TableroPanel tableroPanel;
     TableroData tableroData;
     ControladorPanelTablero controladorPanelTablero;
-
+    
     public ControladorTablero(int numeroPuntos, List<Jugador> jugadores) {
         this.tablero = new Tablero();
-        this.configuracion = new Configuracion();
         this.tableroPanel = new TableroPanel();
         tableroPanel.setSize(800, 800);
         this.tableroData = new TableroData(numeroPuntos,
                 tableroPanel.getWidth(), tableroPanel.getHeight());
         tableroData.setJugadores(jugadores);
+        this.tableroPanel.cargarInformacion(tableroData);
+        this.configuracion = new Configuracion();
+        
+        
+        
+        tableroData.agregarObservador(tableroPanel);
+        
+        
+        
+        
         this.controladorPanelTablero = new ControladorPanelTablero(tablero,
                 tableroPanel, tableroData);
         this.generarEventosConfiguracion();
+        
     }
-
+    
     private void generarEventosConfiguracion() {
         this.tablero.btnConfiguracion.addActionListener(this);
-
+        
     }
-
+    
     public void iniciar() {
         List<Punto> puntos = tableroData.getPuntos();
-        tableroPanel.generarPuntos(puntos);
         tablero.cargarTablero(tableroPanel);
         ingresarJugadores();
         tablero.setVisible(true);
     }
-
+    
     private void ingresarJugadores() {
         tablero.nombreJ1.setText(tableroData.getJugadores().get(0).getNombre());
         tablero.nombreJ2.setText(tableroData.getJugadores().get(1).getNombre());
         tablero.nombreJ3.setText(tableroData.getJugadores().get(2).getNombre());
         tablero.nombreJ4.setText(tableroData.getJugadores().get(3).getNombre());
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source instanceof JButton) {
             JButton buttonClicked = (JButton) source;
-            if (buttonClicked.equals(tablero.btnConfiguracion)) {
-                configuracion.setVisible(true);
+            String comando = ae.getActionCommand();
+            
+            if (comando.equals("configuracion")) {
+                this.configuracion.setVisible(true);
             }
         }
-
+        
     }
-
+    
 }

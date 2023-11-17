@@ -8,7 +8,7 @@ package main;
 import controlador.ControladorTablero;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Jugador;
+import dominio.Jugador;
 
 /**
  *

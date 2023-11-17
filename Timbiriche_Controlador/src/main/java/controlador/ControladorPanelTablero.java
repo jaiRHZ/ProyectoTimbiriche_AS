@@ -9,9 +9,8 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
-import modelo.Linea;
-import modelo.Punto;
-import modelo.TableroData;
+import dominio.Punto;
+import aplicacion.TableroData;
 import vista.Tablero;
 import vista.TableroPanel;
 
@@ -21,17 +20,15 @@ import vista.TableroPanel;
  */
 public class ControladorPanelTablero implements MouseListener {
 
-    Punto punto1 = null;
-    Punto punto2 = null;
-    Linea linea = null;
-    TableroPanel tableroPanel;
+//    TableroPanel tableroPanel;
     Tablero tablero;
     TableroData tableroData;
 
     public ControladorPanelTablero(Tablero tablero, TableroPanel tableroPanel, TableroData tableroData) {
-        this.tableroPanel = tableroPanel;
+//        this.tableroPanel = tableroPanel;
         this.tablero = tablero;
         this.tableroData = tableroData;
+
         this.generarEventosConfiguracion();
     }
 
@@ -40,65 +37,47 @@ public class ControladorPanelTablero implements MouseListener {
 
     }
 
-    public Punto seleccionarPunto(MouseEvent me) {
+    public boolean seleccionarPunto(MouseEvent me) {
         Punto punto = new Punto(me.getX(), me.getY());
-        return tableroData.validarPunto(punto);
+        boolean respuesta = tableroData.validarPunto(punto);
+        return respuesta;
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
         switch (me.getButton()) {
             case MouseEvent.BUTTON1:
-                if (punto1 == null) {
-                    this.punto1 = seleccionarPunto(me);
-                    if (punto1 != null) {
-                        tableroPanel.puntoA = punto1;
-                    }
-                } else if (punto2 == null) {
-                    this.punto2 = seleccionarPunto(me);
-                    if (punto2 != null) {
-                        tableroPanel.puntoB = punto1;
-                        linea = new Linea(punto1, punto2);
-                        if (tableroData.validarLinea(linea)) {
-                            tableroPanel.generaLineas(linea);
-                        }
-                        punto1 = null;
-                        punto2 = null;
-                        tableroPanel.puntoA = punto1;
-                        tableroPanel.puntoB = punto2;
-                    }
-
-                }
+                seleccionarPunto(me);
                 break;
             case MouseEvent.BUTTON3:
-                punto1 = null;
-                punto2 = null;
-                tableroPanel.puntoA = punto1;
-                tableroPanel.puntoB = punto2;
+                tableroData.vaciarPuntos();
                 break;
-            default:
-                break;
+
         }
-        tableroPanel.repaint();
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {
+    public void mousePressed(MouseEvent me
+    ) {
 
     }
 
     @Override
-    public void mouseReleased(MouseEvent me) {
+    public void mouseReleased(MouseEvent me
+    ) {
     }
 
     @Override
-    public void mouseEntered(MouseEvent me) {
-        this.tableroPanel.setBorder(BorderFactory.createLineBorder(Color.yellow, 3));
+    public void mouseEntered(MouseEvent me
+    ) {
+//        this.tableroPanel.setBorder(BorderFactory.createLineBorder(Color.yellow, 3));
+        this.tablero.panelPrincipal.setBorder(BorderFactory.createLineBorder(Color.yellow, 3));
     }
 
     @Override
-    public void mouseExited(MouseEvent me) {
-        this.tableroPanel.setBorder(null);
+    public void mouseExited(MouseEvent me
+    ) {
+//        this.tableroPanel.setBorder(null);
     }
 
 }

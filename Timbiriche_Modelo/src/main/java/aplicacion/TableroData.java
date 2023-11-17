@@ -3,25 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package aplicacion;
 
+import dominio.Jugador;
+import dominio.Linea;
+import dominio.Punto;
 import java.util.ArrayList;
 import java.util.List;
+import observador.IObservable;
+import observador.IObservador;
 
 /**
  *
  * @author HP
  */
-public class TableroData {
+public class TableroData implements IObservable {
 
+    private List<IObservador> observadoresPantalla;
     private List<Punto> puntos;
     private List<Jugador> jugadores;
     private List<Linea> lineas;
     private Double distanciaPuntos;
+    private Punto puntoA;
+    private Punto puntoB;
 
     public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
         this.lineas = new ArrayList<>();
+        this.observadoresPantalla = new ArrayList<>();
         this.calcularDistancia();
     }
 
@@ -57,6 +66,20 @@ public class TableroData {
         this.distanciaPuntos = distanciaPuntos;
     }
 
+    public Punto getPuntoA() {
+        return puntoA;
+    }
+
+    public Punto getPuntoB() {
+        return puntoB;
+    }
+
+    public void vaciarPuntos() {
+        this.puntoA = null;
+        this.puntoB = null;
+        actualizarTodos();
+    }
+
     private List<Punto> calcularPuntosTablero(int cantidadPuntos, int anchoTablero, int altoTablero) {
         List<Punto> puntos = new ArrayList<>();
         int espacioAltura = altoTablero / cantidadPuntos;
@@ -71,14 +94,27 @@ public class TableroData {
         return puntos;
     }
 
-    public Punto validarPunto(Punto puntoValidar) {
+    public boolean validarPunto(Punto puntoValidar) {
         for (Punto punto : getPuntos()) {
-            if (puntoValidar.getX() >= punto.getX() - 10 && puntoValidar.getX() <= punto.getX() + 10
-                    && puntoValidar.getY() >= punto.getY() - 10 && puntoValidar.getY() <= punto.getY() + 10) {
-                return punto;
+            if (puntoValidar.getX() >= punto.getX() - 10
+                    && puntoValidar.getX() <= punto.getX() + 10
+                    && puntoValidar.getY() >= punto.getY() - 10
+                    && puntoValidar.getY() <= punto.getY() + 10) {
+                if (puntoA == null) {
+                    puntoA = punto;
+                    actualizarTodos();
+                } else if (puntoB == null) {
+
+                    puntoB = punto;
+
+                    validarLinea();
+                    vaciarPuntos();
+                }
+                return true;
             }
         }
-        return null;
+
+        return false;
     }
 
     private void calcularDistancia() {
@@ -89,17 +125,36 @@ public class TableroData {
         this.distanciaPuntos = Math.sqrt(distanciaX + distanciaY);
     }
 
-    public boolean validarLinea(Linea linea) {
-        Punto puntoA = linea.getPuntoA();
-        Punto puntoB = linea.getPuntoB();
+    private boolean validarLinea() {
+        Punto puntoA = this.puntoA;
+        Punto puntoB = this.puntoB;
+
         Double distanciaX = Math.pow((puntoB.getX() - puntoA.getX()), 2);
         Double distanciaY = Math.pow((puntoB.getY() - puntoA.getY()), 2);
         Double distancia = Math.sqrt(distanciaX + distanciaY);
         if (distancia.equals(distanciaPuntos)) {
+            Linea linea = new Linea(puntoA, puntoB);
+            this.lineas.add(linea);
             return true;
         } else {
             return false;
         }
     }
 
+    @Override
+    public void actualizarTodos() {
+        for (IObservador observadores : observadoresPantalla) {
+            observadores.actualizar();
+        }
+    }
+
+    @Override
+    public void agregarObservador(IObservador observador) {
+        this.observadoresPantalla.add(observador);
+    }
+
+    @Override
+    public void eliminarObservador(IObservador observador) {
+        this.observadoresPantalla.remove(observador);
+    }
 }
