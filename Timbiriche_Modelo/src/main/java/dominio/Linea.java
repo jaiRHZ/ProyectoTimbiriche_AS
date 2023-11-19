@@ -5,6 +5,8 @@
  */
 package dominio;
 
+import java.util.Objects;
+
 /**
  *
  * @author HP
@@ -36,6 +38,45 @@ public class Linea {
 
     public void setPuntoB(Punto puntoB) {
         this.puntoB = puntoB;
+    }
+
+    public boolean puntosConectados(Linea otraLinea) {
+        return this.puntoA.equals(otraLinea.puntoA) || this.puntoA.equals(otraLinea.puntoB)
+                || this.puntoB.equals(otraLinea.puntoA) || this.puntoB.equals(otraLinea.puntoB);
+    }
+
+    @Override
+    public String toString() {
+        return "Linea{" + "puntoA=" + puntoA + ", puntoB=" + puntoB + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.puntoA);
+        hash = 19 * hash + Objects.hashCode(this.puntoB);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Linea other = (Linea) obj;
+        if (!Objects.equals(this.puntoA, other.puntoA)) {
+            return false;
+        }
+        if (!Objects.equals(this.puntoB, other.puntoB)) {
+            return false;
+        }
+        return true;
     }
 
 }

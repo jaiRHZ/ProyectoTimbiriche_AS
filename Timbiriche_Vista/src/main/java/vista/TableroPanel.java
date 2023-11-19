@@ -6,9 +6,10 @@
 package vista;
 
 import java.awt.Graphics;
-import aplicacion.TableroData;
+//import aplicacion.TableroData;
 import gestor.GestorTableroPanel;
 import observador.IObservador;
+import test.TableroData;
 
 /**
  *
@@ -33,6 +34,7 @@ public class TableroPanel extends javax.swing.JPanel implements IObservador {
     public void paint(Graphics g) {
         super.paint(g);
         dibujarLineas(g);
+        dibujarCuadrados(g);
         dibujarPuntos(g);
 
     }
@@ -45,6 +47,11 @@ public class TableroPanel extends javax.swing.JPanel implements IObservador {
     private void dibujarLineas(Graphics g) {
         gestorTableroPanel.dibujarLineas(g, tableroData.getLineas());
 
+    }
+
+    private void dibujarCuadrados(Graphics g) {
+        gestorTableroPanel.dibujarCuadrados(g, tableroData.getCuadrados(),
+                Double.valueOf(tableroData.getDistanciaPuntos()).intValue());
     }
 
     @Override

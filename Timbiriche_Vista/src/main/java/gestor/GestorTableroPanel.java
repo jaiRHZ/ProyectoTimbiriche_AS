@@ -5,6 +5,7 @@
  */
 package gestor;
 
+import dominio.Cuadrado;
 import dominio.Linea;
 import dominio.Punto;
 import java.awt.BasicStroke;
@@ -47,6 +48,17 @@ public class GestorTableroPanel {
                         a.getY() + 10 / 2,
                         b.getX() + 10 / 2,
                         b.getY() + 10 / 2);
+            }
+        }
+    }
+
+    public void dibujarCuadrados(Graphics g, List<Cuadrado> cuadrados, int lado) {
+        if (cuadrados != null) {
+            for (int i = 0; i < cuadrados.size(); i++) {
+                g.setColor(Color.yellow);
+                g.fillRect(cuadrados.get(i).getPuntoA().getX(),
+                        cuadrados.get(i).getPuntoA().getY(),
+                        lado + 10, lado + 10);
             }
         }
     }
