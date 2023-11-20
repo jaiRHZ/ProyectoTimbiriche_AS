@@ -3,30 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
-
-import dominio.Jugador;
-import dominio.Linea;
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- *
- * @author HP
- */
-public class Test {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-
-        TableroData tableroData = new TableroData(10, 900, 900);
-        List<Linea> lineas = new ArrayList<>();
-        
-        tableroData.setLineas(lineas);
-
-    }
-
-}
+//package test;
+//
+//import dominio.Jugador;
+//import dominio.Linea;
+//import java.util.ArrayList;
+//import java.util.List;
+//
+///**
+// *
+// * @author HP
+// */
+//public class Test {
+//
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String[] args) {
+//        // TODO code application logic here
+//
+//        TableroData tableroData = new TableroData(10, 900, 900);
+//        List<Linea> lineas = new ArrayList<>();
+//        
+//        tableroData.setLineas(lineas);
+//
+//    }
+//
+//}

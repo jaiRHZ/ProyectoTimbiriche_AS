@@ -25,7 +25,7 @@ public class Tablero extends javax.swing.JFrame {
         panelPrincipal.setSize(panelTablero.getWidth(),
                 panelTablero.getHeight());
         panelTablero.setLocation(0, 0);
-        panelTablero.setBackground(Color.BLACK);
+        panelTablero.setBackground(Color.WHITE);
         panelPrincipal.removeAll();
         panelPrincipal.add(panelTablero, BorderLayout.CENTER);
         panelPrincipal.revalidate();

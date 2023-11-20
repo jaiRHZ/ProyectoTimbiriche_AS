@@ -26,76 +26,133 @@ public class FinJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         imgGanador = new javax.swing.JLabel();
         ganador1 = new javax.swing.JLabel();
-        btnNuevoJuego = new javax.swing.JButton();
         btnMenuPrincipal = new javax.swing.JButton();
+        btnNuevoJuego = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        btnMinimizar = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        ptPuntaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Fin del Juego");
+        setUndecorated(true);
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(400, 400));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setText("¡Ganador!");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
 
+        imgGanador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
         imgGanador.setText("ganador");
-        imgGanador.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgGanador.setPreferredSize(new java.awt.Dimension(100, 100));
+        background.add(imgGanador, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
+        ganador1.setFont(new java.awt.Font("Roboto Black", 1, 14)); // NOI18N
         ganador1.setText("Ganador");
+        background.add(ganador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
-        btnNuevoJuego.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnNuevoJuego.setText("Nuevo Juego");
-
-        btnMenuPrincipal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnMenuPrincipal.setBackground(new java.awt.Color(0, 109, 182));
+        btnMenuPrincipal.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnMenuPrincipal.setText("Menu Principal");
+        btnMenuPrincipal.setBorder(null);
+        btnMenuPrincipal.setBorderPainted(false);
+        btnMenuPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        background.add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 140, 40));
+
+        btnNuevoJuego.setBackground(new java.awt.Color(0, 109, 182));
+        btnNuevoJuego.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnNuevoJuego.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevoJuego.setText("Nuevo Juego");
+        btnNuevoJuego.setBorder(null);
+        btnNuevoJuego.setBorderPainted(false);
+        btnNuevoJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        background.add(btnNuevoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 140, 40));
+
+        jPanel1.setBackground(new java.awt.Color(0, 109, 182));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 50));
+
+        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
+            }
+        });
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(290, Short.MAX_VALUE)
+                .addComponent(btnMinimizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrar)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCerrar)
+                    .addComponent(btnMinimizar))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLabel2.setText("Puntaje:");
+        background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
+
+        ptPuntaje.setFont(new java.awt.Font("Roboto Light", 0, 14)); // NOI18N
+        ptPuntaje.setText("0");
+        background.add(ptPuntaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(btnMenuPrincipal)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnNuevoJuego)))
-                .addContainerGap(60, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(150, 150, 150)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(imgGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(ganador1)))
-                    .addContainerGap(182, Short.MAX_VALUE)))
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevoJuego)
-                    .addComponent(btnMenuPrincipal))
-                .addGap(66, 66, 66))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(73, 73, 73)
-                    .addComponent(imgGanador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(ganador1)
-                    .addContainerGap(173, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -133,10 +190,16 @@ public class FinJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    public javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnMenuPrincipal;
+    public javax.swing.JLabel btnMinimizar;
     public javax.swing.JButton btnNuevoJuego;
     public javax.swing.JLabel ganador1;
     public javax.swing.JLabel imgGanador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel ptPuntaje;
     // End of variables declaration//GEN-END:variables
 }
