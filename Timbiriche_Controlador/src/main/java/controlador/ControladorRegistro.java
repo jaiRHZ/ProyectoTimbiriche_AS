@@ -29,7 +29,6 @@ public class ControladorRegistro implements ActionListener {
         this.tableroData = new TableroData();
         this.registro = new Registro();
         this.registro.btnRegistrar.addActionListener(this);
-        this.registro.btnSalir.addActionListener(this);
         this.registro.btnSiguiente.addActionListener(this);
         this.registro.btnAnterior.addActionListener(this);
         this.icon = cargarImagen("images/0.jpg"); 
@@ -47,10 +46,10 @@ public class ControladorRegistro implements ActionListener {
 
         if (e.getSource() == registro.btnRegistrar) {
             String nickname = registro.txtNickname.getText();
-            if (nickname.isEmpty() || nickname.isBlank()) {
+            if (nickname.isBlank() || nickname.equals("Crea tu Nickname")) {
                 JOptionPane.showMessageDialog(null, "El nickname del jugador está vacío");
             } else {
-                tableroData.setJugadorPrincipal(new Jugador(nickname));
+                tableroData.setJugadorPrincipal(new Jugador(nickname, icon));
                 controladorPantallaInicio.iniciarPantalla();
                 registro.dispose();
             }
@@ -74,10 +73,6 @@ public class ControladorRegistro implements ActionListener {
                 //new ImageIcon(getClass().getClassLoader().getResource("images/" + contador + ".jpg"));
         registro.imgAvatar.setIcon(icon);
 
-        if (e.getSource() == registro.btnSalir) {
-            System.exit(0);
-        }
-
     }
     
     private Icon cargarImagen(String path){
@@ -86,7 +81,7 @@ public class ControladorRegistro implements ActionListener {
             Image originalImage = ImageIO.read(imageUrl);
             
             int newWidth = 100;
-            int newHeight = 120;
+            int newHeight = 100;
             
             Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
             

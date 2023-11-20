@@ -32,6 +32,8 @@ public class NewMain {
 
         controladorTablero.iniciar();
 
+//ControladorRegistro cr = new ControladorRegistro();
+//cr.iniciarPantalla();
 
     }
 
