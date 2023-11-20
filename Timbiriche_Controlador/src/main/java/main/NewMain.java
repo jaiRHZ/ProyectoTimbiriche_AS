@@ -9,6 +9,7 @@ import controlador.ControladorTablero;
 import java.util.ArrayList;
 import java.util.List;
 import dominio.Jugador;
+import controlador.ControladorRegistro;
 
 /**
  *
@@ -30,6 +31,7 @@ public class NewMain {
         ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
 
         controladorTablero.iniciar();
+
 
     }
 

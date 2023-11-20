@@ -1,6 +1,7 @@
 package controlador;
 
 import dominio.Jugador;
+import test.TableroData;
 import vista.PantallaInicio;
 
 /**
@@ -9,16 +10,15 @@ import vista.PantallaInicio;
  */
 public class ControladorPantallaInicio {
 
-    private Jugador jugador;
+    private TableroData tableroData;
     private PantallaInicio pantallaInicio;
 
-    public ControladorPantallaInicio(Jugador jugador) {
-        this.jugador = jugador;
-        iniciarPantalla();
+    public ControladorPantallaInicio(TableroData tableroData) {
+        this.tableroData = tableroData;
+        this.pantallaInicio = new PantallaInicio();
     }
 
     public void iniciarPantalla() {
-        this.pantallaInicio = new PantallaInicio();
         this.pantallaInicio.setVisible(true);
     }
 
