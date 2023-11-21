@@ -55,6 +55,10 @@ public class Tablero extends javax.swing.JFrame {
         imgJugador3 = new javax.swing.JLabel();
         imgJugador2 = new javax.swing.JLabel();
         imgJugador4 = new javax.swing.JLabel();
+        puntaje1 = new javax.swing.JLabel();
+        puntaje2 = new javax.swing.JLabel();
+        puntaje3 = new javax.swing.JLabel();
+        puntaje4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tablero");
@@ -173,6 +177,22 @@ public class Tablero extends javax.swing.JFrame {
         imgJugador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
         background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 530, -1, -1));
 
+        puntaje1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        puntaje1.setText("Puntaje1");
+        background.add(puntaje1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
+
+        puntaje2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        puntaje2.setText("Puntaje2");
+        background.add(puntaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 230, -1, -1));
+
+        puntaje3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        puntaje3.setText("Puntaje3");
+        background.add(puntaje3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 670, -1, -1));
+
+        puntaje4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        puntaje4.setText("Puntaje4");
+        background.add(puntaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 660, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -243,7 +263,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
+    public javax.swing.JPanel background;
     public javax.swing.JLabel btnCerrar;
     public javax.swing.JButton btnConfiguracion;
     public javax.swing.JLabel btnMinimizar;
@@ -257,5 +277,9 @@ public class Tablero extends javax.swing.JFrame {
     public javax.swing.JLabel nombreJ3;
     public javax.swing.JLabel nombreJ4;
     public javax.swing.JPanel panelPrincipal;
+    public javax.swing.JLabel puntaje1;
+    public javax.swing.JLabel puntaje2;
+    public javax.swing.JLabel puntaje3;
+    public javax.swing.JLabel puntaje4;
     // End of variables declaration//GEN-END:variables
 }
