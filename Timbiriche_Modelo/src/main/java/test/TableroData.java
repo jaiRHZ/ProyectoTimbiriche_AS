@@ -30,8 +30,12 @@ public class TableroData implements IObservable {
     private Double distanciaPuntos;
     private Punto puntoA;
     private Punto puntoB;
-
+    private Jugador lider;
+    private String codigoPartida;
+    
     public TableroData() {
+        this.observadoresPantalla = new ArrayList<>();
+        this.jugadores = new ArrayList<>();
     }
 
     public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
@@ -40,8 +44,9 @@ public class TableroData implements IObservable {
         this.cuadrados = new ArrayList<>();
         this.observadoresPantalla = new ArrayList<>();
         this.calcularDistancia();
+        
     }
-
+    
     public List<IObservador> getObservadoresPantalla() {
         return observadoresPantalla;
     }
@@ -58,6 +63,14 @@ public class TableroData implements IObservable {
         this.jugadorPrincipal = jugadorPrincipal;
     }
     
+        public void agregarJugador(Jugador jugador){
+        this.jugadores.add(jugador);
+    }
+    
+    public void eliminarJugador(Jugador jugador){
+        this.jugadores.remove(jugador);
+    }
+
     public List<Jugador> getJugadores() {
         return jugadores;
     }
@@ -72,6 +85,23 @@ public class TableroData implements IObservable {
 
     public void setPuntos(List<Punto> puntos) {
         this.puntos = puntos;
+    }
+    
+    public Jugador getLider() {
+        return lider;
+    }
+
+    public void setLider(Jugador lider) {
+        this.lider = lider;
+        this.actualizarTodos();
+    }
+    
+    public String getCodigoPartida() {
+        return codigoPartida;
+    }
+
+    public void setCodigoPartida(String codigoPartida) {
+        this.codigoPartida = codigoPartida;
     }
 
     public List<Linea> getLineas() {

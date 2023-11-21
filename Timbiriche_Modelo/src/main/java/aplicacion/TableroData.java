@@ -26,7 +26,7 @@ public class TableroData implements IObservable {
     private Double distanciaPuntos;
     private Punto puntoA;
     private Punto puntoB;
-
+    
     public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
         this.lineas = new ArrayList<>();

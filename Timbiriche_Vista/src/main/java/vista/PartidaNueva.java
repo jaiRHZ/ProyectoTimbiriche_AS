@@ -4,17 +4,33 @@
  */
 package vista;
 
+import observador.IObservador;
+import test.TableroData;
+
 /**
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
-public class PartidaNueva extends javax.swing.JFrame {
+public class PartidaNueva extends javax.swing.JFrame implements IObservador{
 
+    private TableroData tableroData;
+    
     /**
      * Creates new form PartidaNueva
      */
     public PartidaNueva() {
         initComponents();
+    }
+    
+    public void setCargarInfo(TableroData tableroData){
+        this.tableroData = tableroData;
+        labelJugador.setText(tableroData.getLider().getNombre());
+        labelCodigo.setText(tableroData.getCodigoPartida());
+    }
+    
+    @Override
+    public void actualizar() {
+        this.repaint();
     }
 
     /**
@@ -100,8 +116,9 @@ public class PartidaNueva extends javax.swing.JFrame {
         btnDiez.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnDiez.setForeground(new java.awt.Color(255, 255, 255));
         btnDiez.setText("10x10");
+        btnDiez.setActionCommand("10");
         btnDiez.setBorder(null);
-        btnDiez.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDiez.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDiez.setPreferredSize(new java.awt.Dimension(70, 40));
         background.add(btnDiez, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 171, -1, -1));
 
@@ -114,8 +131,9 @@ public class PartidaNueva extends javax.swing.JFrame {
         btnVeinte.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnVeinte.setForeground(new java.awt.Color(255, 255, 255));
         btnVeinte.setText("20x20");
+        btnVeinte.setActionCommand("20");
         btnVeinte.setBorder(null);
-        btnVeinte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVeinte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnVeinte.setPreferredSize(new java.awt.Dimension(70, 40));
         background.add(btnVeinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 171, -1, -1));
 
@@ -127,8 +145,9 @@ public class PartidaNueva extends javax.swing.JFrame {
         btnTreinta.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         btnTreinta.setForeground(new java.awt.Color(255, 255, 255));
         btnTreinta.setText("30x30");
+        btnTreinta.setActionCommand("30");
         btnTreinta.setBorder(null);
-        btnTreinta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTreinta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnTreinta.setPreferredSize(new java.awt.Dimension(70, 40));
         background.add(btnTreinta, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 171, -1, -1));
 
@@ -142,7 +161,7 @@ public class PartidaNueva extends javax.swing.JFrame {
         btnComenzar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/entrar.png"))); // NOI18N
         btnComenzar.setText("Comenzar");
         btnComenzar.setBorder(null);
-        btnComenzar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnComenzar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnComenzar.setPreferredSize(new java.awt.Dimension(130, 40));
         background.add(btnComenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, -1));
 
@@ -159,7 +178,7 @@ public class PartidaNueva extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 50));
 
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
-        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -167,7 +186,7 @@ public class PartidaNueva extends javax.swing.JFrame {
         });
 
         btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
-        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseClicked(evt);
@@ -265,7 +284,7 @@ public class PartidaNueva extends javax.swing.JFrame {
     public javax.swing.JButton btnDiez;
     public javax.swing.JLabel btnMinimizar;
     public javax.swing.JButton btnTreinta;
-    private javax.swing.JButton btnVeinte;
+    public javax.swing.JButton btnVeinte;
     public javax.swing.JLabel imgJugador1;
     public javax.swing.JLabel imgJugador2;
     public javax.swing.JLabel imgJugador3;

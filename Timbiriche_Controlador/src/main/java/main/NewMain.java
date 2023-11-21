@@ -5,6 +5,7 @@
  */
 package main;
 
+import controlador.ControladorPartidaNueva;
 import controlador.ControladorTablero;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,15 +23,21 @@ public class NewMain {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        List<Jugador> jugadores = new ArrayList<>();
-        jugadores.add(new Jugador("Daniel"));
-        jugadores.add(new Jugador("Jairo"));
-        jugadores.add(new Jugador("Herman"));
-        jugadores.add(new Jugador("Jorge"));
+//        List<Jugador> jugadores = new ArrayList<>();
+//        jugadores.add(new Jugador("Daniel"));
+//        jugadores.add(new Jugador("Jairo"));
+//        jugadores.add(new Jugador("Herman"));
+//        jugadores.add(new Jugador("Jorge"));
 
-        ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
+//        ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
+//
+//        controladorTablero.iniciar();
+        ControladorPartidaNueva cpn = new ControladorPartidaNueva(new Jugador("Jorge"));
+        cpn.nuevoJugador(new Jugador("Daniel"));
+        cpn.nuevoJugador(new Jugador("Fernando"));
+        cpn.nuevoJugador(new Jugador("Luis"));
 
-        controladorTablero.iniciar();
+        cpn.mostrarPantalla();
 
 //ControladorRegistro cr = new ControladorRegistro();
 //cr.iniciarPantalla();
