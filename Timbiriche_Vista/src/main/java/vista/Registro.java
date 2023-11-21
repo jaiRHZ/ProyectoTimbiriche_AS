@@ -95,11 +95,15 @@ public class Registro extends javax.swing.JFrame {
         btnSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/siguiente.png"))); // NOI18N
         btnSiguiente.setBorder(null);
         btnSiguiente.setBorderPainted(false);
+        btnSiguiente.setContentAreaFilled(false);
+        btnSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnAnterior.setBackground(new java.awt.Color(255, 255, 255));
         btnAnterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/anterior.png"))); // NOI18N
         btnAnterior.setBorder(null);
         btnAnterior.setBorderPainted(false);
+        btnAnterior.setContentAreaFilled(false);
+        btnAnterior.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAnterior.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
