@@ -37,19 +37,19 @@ public class Configuracion extends javax.swing.JFrame {
         btnCerrar = new javax.swing.JLabel();
         imgJugador4 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        btnColorJ1 = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
-        btnColorJ2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnColorJ3 = new javax.swing.JButton();
         nombreJ1 = new javax.swing.JLabel();
-        btnColorJ4 = new javax.swing.JButton();
         nombreJ2 = new javax.swing.JLabel();
         nombreJ3 = new javax.swing.JLabel();
         nombreJ4 = new javax.swing.JLabel();
         imgJugador1 = new javax.swing.JLabel();
         imgJugador2 = new javax.swing.JLabel();
         imgJugador3 = new javax.swing.JLabel();
+        comBoxColores = new javax.swing.JComboBox<>();
+        comBoxColores1 = new javax.swing.JComboBox<>();
+        comBoxColores2 = new javax.swing.JComboBox<>();
+        comBoxColores3 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Configuracion del Tablero");
@@ -66,7 +66,7 @@ public class Configuracion extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(450, 50));
 
         btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
-        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseClicked(evt);
@@ -74,7 +74,7 @@ public class Configuracion extends javax.swing.JFrame {
         });
 
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
-        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -104,7 +104,6 @@ public class Configuracion extends javax.swing.JFrame {
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         imgJugador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        imgJugador4.setPreferredSize(new java.awt.Dimension(100, 100));
         background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
 
         btnCancelar.setBackground(new java.awt.Color(248, 20, 19));
@@ -114,18 +113,9 @@ public class Configuracion extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
         btnCancelar.setBorderPainted(false);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCancelar.setPreferredSize(new java.awt.Dimension(90, 50));
         background.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 120, 38));
-
-        btnColorJ1.setBackground(new java.awt.Color(255, 255, 255));
-        btnColorJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
-        btnColorJ1.setBorder(null);
-        btnColorJ1.setBorderPainted(false);
-        btnColorJ1.setContentAreaFilled(false);
-        btnColorJ1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnColorJ1.setPreferredSize(new java.awt.Dimension(35, 35));
-        background.add(btnColorJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
 
         btnAceptar.setBackground(new java.awt.Color(0, 109, 182));
         btnAceptar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -133,45 +123,19 @@ public class Configuracion extends javax.swing.JFrame {
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/aceptar.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
         btnAceptar.setBorder(null);
-        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAceptar.setPreferredSize(new java.awt.Dimension(90, 50));
         background.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, 38));
-
-        btnColorJ2.setBackground(new java.awt.Color(255, 255, 255));
-        btnColorJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
-        btnColorJ2.setToolTipText("");
-        btnColorJ2.setBorder(null);
-        btnColorJ2.setBorderPainted(false);
-        btnColorJ2.setContentAreaFilled(false);
-        btnColorJ2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnColorJ2.setPreferredSize(new java.awt.Dimension(35, 35));
-        background.add(btnColorJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Cambiar Color");
         background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
-        btnColorJ3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
-        btnColorJ3.setBorder(null);
-        btnColorJ3.setBorderPainted(false);
-        btnColorJ3.setContentAreaFilled(false);
-        btnColorJ3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnColorJ3.setPreferredSize(new java.awt.Dimension(35, 35));
-        background.add(btnColorJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
-
         nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreJ1.setText("Jugador 1");
         background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
-
-        btnColorJ4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
-        btnColorJ4.setToolTipText("");
-        btnColorJ4.setBorder(null);
-        btnColorJ4.setBorderPainted(false);
-        btnColorJ4.setContentAreaFilled(false);
-        btnColorJ4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        background.add(btnColorJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
 
         nombreJ2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ2.setText("Jugador 2");
@@ -187,16 +151,25 @@ public class Configuracion extends javax.swing.JFrame {
 
         imgJugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgJugador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        imgJugador1.setPreferredSize(new java.awt.Dimension(100, 100));
         background.add(imgJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         imgJugador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        imgJugador2.setPreferredSize(new java.awt.Dimension(100, 100));
         background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
         imgJugador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        imgJugador3.setPreferredSize(new java.awt.Dimension(100, 100));
         background.add(imgJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        comBoxColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
+        background.add(comBoxColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+
+        comBoxColores1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
+        background.add(comBoxColores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+
+        comBoxColores2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
+        background.add(comBoxColores2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+
+        comBoxColores3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
+        background.add(comBoxColores3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -267,11 +240,11 @@ public class Configuracion extends javax.swing.JFrame {
     public javax.swing.JButton btnAceptar;
     public javax.swing.JButton btnCancelar;
     public javax.swing.JLabel btnCerrar;
-    private javax.swing.JButton btnColorJ1;
-    private javax.swing.JButton btnColorJ2;
-    private javax.swing.JButton btnColorJ3;
-    private javax.swing.JButton btnColorJ4;
     public javax.swing.JLabel btnMinimizar;
+    public javax.swing.JComboBox<String> comBoxColores;
+    public javax.swing.JComboBox<String> comBoxColores1;
+    public javax.swing.JComboBox<String> comBoxColores2;
+    public javax.swing.JComboBox<String> comBoxColores3;
     public javax.swing.JLabel imgJugador1;
     public javax.swing.JLabel imgJugador2;
     public javax.swing.JLabel imgJugador3;
