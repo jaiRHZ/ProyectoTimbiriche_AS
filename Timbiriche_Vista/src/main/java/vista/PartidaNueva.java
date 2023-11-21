@@ -11,26 +11,33 @@ import test.TableroData;
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
-public class PartidaNueva extends javax.swing.JFrame implements IObservador{
+public class PartidaNueva extends javax.swing.JFrame implements IObservador {
 
     private TableroData tableroData;
-    
+
     /**
      * Creates new form PartidaNueva
      */
     public PartidaNueva() {
         initComponents();
     }
-    
-    public void setCargarInfo(TableroData tableroData){
+
+    public void setCargarInfo(TableroData tableroData) {
         this.tableroData = tableroData;
-        labelJugador.setText(tableroData.getLider().getNombre());
+        labelJugador.setText(tableroData.getJugadorPrincipal().getNombre());
         labelCodigo.setText(tableroData.getCodigoPartida());
+        this.cargarJugadores();
     }
-    
+
     @Override
     public void actualizar() {
         this.repaint();
+    }
+
+    private void cargarJugadores() {
+        //Jugador Principal
+        this.nombreJ1.setText(tableroData.getJugadorPrincipal().getNombre());
+        this.imgJugador1.setIcon(tableroData.getJugadorPrincipal().getIcono());
     }
 
     /**

@@ -30,23 +30,30 @@ public class TableroData implements IObservable {
     private Double distanciaPuntos;
     private Punto puntoA;
     private Punto puntoB;
-    private Jugador lider;
+
     private String codigoPartida;
-    
+
     public TableroData() {
         this.observadoresPantalla = new ArrayList<>();
         this.jugadores = new ArrayList<>();
     }
 
-    public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
+//    public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
+//        this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
+//        this.lineas = new ArrayList<>();
+//        this.cuadrados = new ArrayList<>();
+//        this.observadoresPantalla = new ArrayList<>();
+//        this.calcularDistancia();
+//
+//    }
+    public void iniciarTablero(int cantidadPuntos, int anchoTablero, int altoTablero) {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
         this.lineas = new ArrayList<>();
         this.cuadrados = new ArrayList<>();
         this.observadoresPantalla = new ArrayList<>();
         this.calcularDistancia();
-        
     }
-    
+
     public List<IObservador> getObservadoresPantalla() {
         return observadoresPantalla;
     }
@@ -61,13 +68,14 @@ public class TableroData implements IObservable {
 
     public void setJugadorPrincipal(Jugador jugadorPrincipal) {
         this.jugadorPrincipal = jugadorPrincipal;
+        this.actualizarTodos();
     }
-    
-        public void agregarJugador(Jugador jugador){
+
+    public void agregarJugador(Jugador jugador) {
         this.jugadores.add(jugador);
     }
-    
-    public void eliminarJugador(Jugador jugador){
+
+    public void eliminarJugador(Jugador jugador) {
         this.jugadores.remove(jugador);
     }
 
@@ -86,16 +94,7 @@ public class TableroData implements IObservable {
     public void setPuntos(List<Punto> puntos) {
         this.puntos = puntos;
     }
-    
-    public Jugador getLider() {
-        return lider;
-    }
 
-    public void setLider(Jugador lider) {
-        this.lider = lider;
-        this.actualizarTodos();
-    }
-    
     public String getCodigoPartida() {
         return codigoPartida;
     }

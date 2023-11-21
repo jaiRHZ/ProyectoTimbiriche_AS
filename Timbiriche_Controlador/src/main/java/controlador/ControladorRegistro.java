@@ -19,8 +19,8 @@ import test.TableroData;
  */
 public class ControladorRegistro implements ActionListener {
 
-    private Registro registro;
-    private TableroData tableroData;
+    private final Registro registro;
+    private final TableroData tableroData;
     private ControladorPantallaInicio controladorPantallaInicio;
     private int contador = 0;
     private Icon icon;
@@ -31,13 +31,14 @@ public class ControladorRegistro implements ActionListener {
         this.registro.btnRegistrar.addActionListener(this);
         this.registro.btnSiguiente.addActionListener(this);
         this.registro.btnAnterior.addActionListener(this);
-        this.icon = cargarImagen("images/0.jpg"); 
-                //new ImageIcon(getClass().getClassLoader().getResource("images/0.jpg"));
+        this.icon = cargarImagen("images/0.jpg");
+        //new ImageIcon(getClass().getClassLoader().getResource("images/0.jpg"));
         registro.imgAvatar.setIcon(icon);
+
     }
 
     public void iniciarPantalla() {
-        this.controladorPantallaInicio = new ControladorPantallaInicio(tableroData);
+
         this.registro.setVisible(true);
     }
 
@@ -46,10 +47,11 @@ public class ControladorRegistro implements ActionListener {
 
         if (e.getSource() == registro.btnRegistrar) {
             String nickname = registro.txtNickname.getText();
-            if (nickname.isBlank() || nickname.equals("Crea tu Nickname")) {
+            if (nickname.equals("Crea tu Nickname")) {
                 JOptionPane.showMessageDialog(null, "El nickname del jugador está vacío");
             } else {
-                tableroData.setJugadorPrincipal(new Jugador(nickname, icon));
+                this.tableroData.setJugadorPrincipal(new Jugador(nickname, icon));
+                controladorPantallaInicio = new ControladorPantallaInicio(tableroData);
                 controladorPantallaInicio.iniciarPantalla();
                 registro.dispose();
             }
@@ -69,24 +71,24 @@ public class ControladorRegistro implements ActionListener {
             }
         }
 
-        icon = cargarImagen("images/"+contador+".jpg");
-                //new ImageIcon(getClass().getClassLoader().getResource("images/" + contador + ".jpg"));
+        icon = cargarImagen("images/" + contador + ".jpg");
+        //new ImageIcon(getClass().getClassLoader().getResource("images/" + contador + ".jpg"));
         registro.imgAvatar.setIcon(icon);
 
     }
-    
-    private Icon cargarImagen(String path){
-        try{
+
+    private Icon cargarImagen(String path) {
+        try {
             URL imageUrl = getClass().getClassLoader().getResource(path);
             Image originalImage = ImageIO.read(imageUrl);
-            
+
             int newWidth = 100;
             int newHeight = 100;
-            
+
             Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-            
+
             return new ImageIcon(resizedImage);
-        }catch(IOException e){
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + e.getMessage());
             return null;
         }

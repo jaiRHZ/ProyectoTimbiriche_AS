@@ -7,7 +7,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JButton;
 import dominio.Jugador;
@@ -30,13 +29,15 @@ public class ControladorTablero implements ActionListener {
     TableroData tableroData;
     ControladorPanelTablero controladorPanelTablero;
 
-    public ControladorTablero(int numeroPuntos, List<Jugador> jugadores) {
+    public ControladorTablero(int numeroPuntos,
+            TableroData tableroData) {
         this.tablero = new Tablero();
         this.tableroPanel = new TableroPanel();
         tableroPanel.setSize(800, 800);
-        this.tableroData = new TableroData(numeroPuntos,
+        this.tableroData = tableroData;
+        this.tableroData.iniciarTablero(numeroPuntos,
                 tableroPanel.getWidth(), tableroPanel.getHeight());
-        tableroData.setJugadores(jugadores);
+        tableroData.setJugadores(tableroData.getJugadores());
         this.tableroPanel.cargarInformacion(tableroData);
         this.configuracion = new Configuracion();
 
@@ -56,15 +57,8 @@ public class ControladorTablero implements ActionListener {
     public void iniciar() {
         List<Punto> puntos = tableroData.getPuntos();
         tablero.cargarTablero(tableroPanel);
-        ingresarJugadores();
+//        ingresarJugadores();
         tablero.setVisible(true);
-    }
-
-    private void ingresarJugadores() {
-        tablero.nombreJ1.setText(tableroData.getJugadores().get(0).getNombre());
-        tablero.nombreJ2.setText(tableroData.getJugadores().get(1).getNombre());
-        tablero.nombreJ3.setText(tableroData.getJugadores().get(2).getNombre());
-        tablero.nombreJ4.setText(tableroData.getJugadores().get(3).getNombre());
     }
 
     @Override

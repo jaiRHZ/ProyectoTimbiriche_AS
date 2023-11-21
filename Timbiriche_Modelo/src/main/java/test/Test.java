@@ -21,10 +21,10 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-
-        TableroData tableroData = new TableroData(10, 900, 900);
-        List<Linea> lineas = new ArrayList<>();
-        tableroData.setLineas(lineas);
+//
+//        TableroData tableroData = new TableroData(10, 900, 900);
+//        List<Linea> lineas = new ArrayList<>();
+//        tableroData.setLineas(lineas);
 
     }
 

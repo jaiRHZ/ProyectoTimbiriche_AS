@@ -28,20 +28,19 @@ public class NewMain {
 //        jugadores.add(new Jugador("Jairo"));
 //        jugadores.add(new Jugador("Herman"));
 //        jugadores.add(new Jugador("Jorge"));
-
+//
 //        ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
 //
 //        controladorTablero.iniciar();
-        ControladorPartidaNueva cpn = new ControladorPartidaNueva(new Jugador("Jorge"));
-        cpn.nuevoJugador(new Jugador("Daniel"));
-        cpn.nuevoJugador(new Jugador("Fernando"));
-        cpn.nuevoJugador(new Jugador("Luis"));
+////        ControladorPartidaNueva cpn = new ControladorPartidaNueva(new Jugador("Jorge"));
+//        cpn.nuevoJugador(new Jugador("Daniel"));
+//        cpn.nuevoJugador(new Jugador("Fernando"));
+//        cpn.nuevoJugador(new Jugador("Luis"));
+//
+//        cpn.mostrarPantalla();
 
-        cpn.mostrarPantalla();
-
-//ControladorRegistro cr = new ControladorRegistro();
-//cr.iniciarPantalla();
-
+        ControladorRegistro cr = new ControladorRegistro();
+        cr.iniciarPantalla();
     }
 
 }
