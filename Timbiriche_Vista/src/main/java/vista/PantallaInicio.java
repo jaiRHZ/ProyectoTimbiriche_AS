@@ -26,57 +26,128 @@ public class PantallaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnPartidaNueva = new javax.swing.JButton();
         btnUnirse = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JLabel();
+        btnMinimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pantalla de Inicio");
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(400, 300));
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel1.setText("Timbiriche");
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(400, 300));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnPartidaNueva.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Freshman", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("TimbirichE");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
+        btnPartidaNueva.setBackground(new java.awt.Color(0, 109, 182));
+        btnPartidaNueva.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnPartidaNueva.setForeground(new java.awt.Color(255, 255, 255));
         btnPartidaNueva.setText("Partida Nueva");
+        btnPartidaNueva.setBorder(null);
+        btnPartidaNueva.setBorderPainted(false);
+        btnPartidaNueva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPartidaNueva.setPreferredSize(new java.awt.Dimension(130, 40));
+        background.add(btnPartidaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
 
-        btnUnirse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnUnirse.setBackground(new java.awt.Color(0, 109, 182));
+        btnUnirse.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnUnirse.setForeground(new java.awt.Color(255, 255, 255));
+        btnUnirse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/unirse.png"))); // NOI18N
         btnUnirse.setText("Unirse");
+        btnUnirse.setBorder(null);
+        btnUnirse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnUnirse.setPreferredSize(new java.awt.Dimension(130, 40));
+        background.add(btnUnirse, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 150, -1));
 
-        btnSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/salir.png"))); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setPreferredSize(new java.awt.Dimension(130, 40));
+        background.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 150, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 109, 182));
+        jPanel2.setMinimumSize(new java.awt.Dimension(400, 50));
+
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+        });
+
+        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 296, Short.MAX_VALUE)
+                .addComponent(btnMinimizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrar))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMinimizar)
+                    .addComponent(btnCerrar))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1)
-                    .addComponent(btnPartidaNueva)
-                    .addComponent(btnUnirse, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnPartidaNueva)
-                .addGap(18, 18, 18)
-                .addComponent(btnUnirse)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalir)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -114,9 +185,13 @@ public class PantallaInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
+    public javax.swing.JLabel btnCerrar;
+    public javax.swing.JLabel btnMinimizar;
     public javax.swing.JButton btnPartidaNueva;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnUnirse;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

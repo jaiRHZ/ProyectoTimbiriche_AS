@@ -31,151 +31,201 @@ public class Configuracion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        background = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        btnMinimizar = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JLabel();
+        imgJugador4 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
+        btnColorJ1 = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+        btnColorJ2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnColorJ3 = new javax.swing.JButton();
         nombreJ1 = new javax.swing.JLabel();
+        btnColorJ4 = new javax.swing.JButton();
         nombreJ2 = new javax.swing.JLabel();
         nombreJ3 = new javax.swing.JLabel();
         nombreJ4 = new javax.swing.JLabel();
         imgJugador1 = new javax.swing.JLabel();
         imgJugador2 = new javax.swing.JLabel();
         imgJugador3 = new javax.swing.JLabel();
-        imgJugador4 = new javax.swing.JLabel();
-        btnColorJ1 = new javax.swing.JButton();
-        btnColorJ2 = new javax.swing.JButton();
-        btnColorJ3 = new javax.swing.JButton();
-        btnColorJ4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Configuracion del Tablero");
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(450, 450));
         setResizable(false);
 
-        btnCancelar.setBackground(new java.awt.Color(248, 20, 19));
-        btnCancelar.setText("Cancelar");
-        btnCancelar.setPreferredSize(new java.awt.Dimension(90, 50));
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+        background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(450, 500));
+        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(0, 109, 182));
+        jPanel1.setMinimumSize(new java.awt.Dimension(100, 50));
+        jPanel1.setPreferredSize(new java.awt.Dimension(450, 50));
+
+        btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMinimizarMouseClicked(evt);
             }
         });
 
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 340, Short.MAX_VALUE)
+                .addComponent(btnMinimizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrar)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCerrar)
+                    .addComponent(btnMinimizar))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
+
+        imgJugador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
+        imgJugador4.setPreferredSize(new java.awt.Dimension(100, 100));
+        background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
+
+        btnCancelar.setBackground(new java.awt.Color(248, 20, 19));
+        btnCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/entrar.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(null);
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setPreferredSize(new java.awt.Dimension(90, 50));
+        background.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 120, 38));
+
+        btnColorJ1.setBackground(new java.awt.Color(255, 255, 255));
+        btnColorJ1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
+        btnColorJ1.setBorder(null);
+        btnColorJ1.setBorderPainted(false);
+        btnColorJ1.setContentAreaFilled(false);
+        btnColorJ1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnColorJ1.setPreferredSize(new java.awt.Dimension(35, 35));
+        background.add(btnColorJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
+
         btnAceptar.setBackground(new java.awt.Color(0, 109, 182));
+        btnAceptar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/aceptar.png"))); // NOI18N
         btnAceptar.setText("Aceptar");
+        btnAceptar.setBorder(null);
+        btnAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAceptar.setPreferredSize(new java.awt.Dimension(90, 50));
+        background.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, 38));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        btnColorJ2.setBackground(new java.awt.Color(255, 255, 255));
+        btnColorJ2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
+        btnColorJ2.setToolTipText("");
+        btnColorJ2.setBorder(null);
+        btnColorJ2.setBorderPainted(false);
+        btnColorJ2.setContentAreaFilled(false);
+        btnColorJ2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnColorJ2.setPreferredSize(new java.awt.Dimension(35, 35));
+        background.add(btnColorJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
         jLabel1.setText("Cambiar Color");
+        background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
+        btnColorJ3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
+        btnColorJ3.setBorder(null);
+        btnColorJ3.setBorderPainted(false);
+        btnColorJ3.setContentAreaFilled(false);
+        btnColorJ3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnColorJ3.setPreferredSize(new java.awt.Dimension(35, 35));
+        background.add(btnColorJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        nombreJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreJ1.setText("Jugador 1");
+        background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
+        btnColorJ4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/opciones.png"))); // NOI18N
+        btnColorJ4.setToolTipText("");
+        btnColorJ4.setBorder(null);
+        btnColorJ4.setBorderPainted(false);
+        btnColorJ4.setContentAreaFilled(false);
+        btnColorJ4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        background.add(btnColorJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
+
+        nombreJ2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ2.setText("Jugador 2");
+        background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
+        nombreJ3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ3.setText("Jugador 3");
+        background.add(nombreJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
-        nombreJ4.setText("Jugador 3");
+        nombreJ4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        nombreJ4.setText("Jugador 4");
+        background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
 
-        imgJugador1.setText("img1");
-        imgJugador1.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgJugador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
+        imgJugador1.setPreferredSize(new java.awt.Dimension(100, 100));
+        background.add(imgJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
-        imgJugador2.setText("img2");
-        imgJugador2.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
+        imgJugador2.setPreferredSize(new java.awt.Dimension(100, 100));
+        background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        imgJugador3.setText("img3");
-        imgJugador3.setPreferredSize(new java.awt.Dimension(100, 120));
-
-        imgJugador4.setText("img4");
-        imgJugador4.setPreferredSize(new java.awt.Dimension(100, 120));
-
-        btnColorJ1.setText("...");
-
-        btnColorJ2.setText("...");
-
-        btnColorJ3.setText("...");
-
-        btnColorJ4.setText("...");
+        imgJugador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
+        imgJugador3.setPreferredSize(new java.awt.Dimension(100, 100));
+        background.add(imgJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(nombreJ1)
-                    .addComponent(imgJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imgJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnColorJ1)
-                    .addComponent(btnColorJ3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(nombreJ2)
-                    .addComponent(imgJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imgJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnColorJ2)
-                    .addComponent(btnColorJ4))
-                .addContainerGap(67, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(nombreJ3)
-                        .addGap(91, 91, 91)
-                        .addComponent(nombreJ4)))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imgJugador1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imgJugador2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnColorJ2)
-                    .addComponent(btnColorJ1))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreJ1)
-                    .addComponent(nombreJ2))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imgJugador3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(imgJugador4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnColorJ3)
-                    .addComponent(btnColorJ4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreJ3)
-                    .addComponent(nombreJ4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42))
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
         // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btnCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMinimizarMouseClicked
+        // TODO add your handling code here:
+        this.setState(ICONIFIED);
+    }//GEN-LAST:event_btnMinimizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -213,17 +263,21 @@ public class Configuracion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel background;
     public javax.swing.JButton btnAceptar;
     public javax.swing.JButton btnCancelar;
+    public javax.swing.JLabel btnCerrar;
     private javax.swing.JButton btnColorJ1;
     private javax.swing.JButton btnColorJ2;
     private javax.swing.JButton btnColorJ3;
     private javax.swing.JButton btnColorJ4;
+    public javax.swing.JLabel btnMinimizar;
     public javax.swing.JLabel imgJugador1;
     public javax.swing.JLabel imgJugador2;
     public javax.swing.JLabel imgJugador3;
     public javax.swing.JLabel imgJugador4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel nombreJ1;
     public javax.swing.JLabel nombreJ2;
     public javax.swing.JLabel nombreJ3;

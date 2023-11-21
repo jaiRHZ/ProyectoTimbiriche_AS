@@ -63,17 +63,19 @@ public class PartidaNueva extends javax.swing.JFrame {
         nombreJ4.setText("Jugador 3");
 
         imgJugador1.setText("img1");
-        imgJugador1.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador1.setPreferredSize(new java.awt.Dimension(100, 100));
 
         imgJugador2.setText("img2");
-        imgJugador2.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        imgJugador2.setPreferredSize(new java.awt.Dimension(100, 100));
 
         imgJugador3.setText("img3");
-        imgJugador3.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador3.setPreferredSize(new java.awt.Dimension(100, 100));
 
         imgJugador4.setText("img4");
-        imgJugador4.setPreferredSize(new java.awt.Dimension(100, 120));
+        imgJugador4.setPreferredSize(new java.awt.Dimension(100, 100));
 
+        nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ1.setText("Jugador 1");
 
         nombreJ2.setText("Jugador 2");
@@ -176,7 +178,6 @@ public class PartidaNueva extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(labelJugador))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -216,7 +217,7 @@ public class PartidaNueva extends javax.swing.JFrame {
                     .addComponent(btnVeinte)
                     .addComponent(btnTreinta)
                     .addComponent(btnComenzar))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         pack();
