@@ -64,25 +64,25 @@ public class Tablero extends javax.swing.JFrame {
         setTitle("Tablero");
         setMaximumSize(new java.awt.Dimension(1200, 1000));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1200, 1000));
+        setPreferredSize(new java.awt.Dimension(1000, 800));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setPreferredSize(new java.awt.Dimension(1200, 1000));
+        background.setPreferredSize(new java.awt.Dimension(1000, 800));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPrincipal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        panelPrincipal.setPreferredSize(new java.awt.Dimension(800, 800));
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(600, 600));
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 794, Short.MAX_VALUE)
+            .addGap(0, 594, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 794, Short.MAX_VALUE)
+            .addGap(0, 594, Short.MAX_VALUE)
         );
 
         background.add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
@@ -112,19 +112,19 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(1094, Short.MAX_VALUE)
+                .addContainerGap(894, Short.MAX_VALUE)
                 .addComponent(btnMinimizar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
-                .addGap(302, 302, 302))
+                .addGap(502, 502, 502))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMinimizar)
-                    .addComponent(btnCerrar)))
+                    .addComponent(btnCerrar)
+                    .addComponent(btnMinimizar))
+                .addGap(8, 8, 8))
         );
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -145,7 +145,7 @@ public class Tablero extends javax.swing.JFrame {
                 btnConfiguracionActionPerformed(evt);
             }
         });
-        background.add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 930, 180, -1));
+        background.add(btnConfiguracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 720, 180, -1));
 
         nombreJ1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         nombreJ1.setText("Jugador1");
@@ -159,11 +159,11 @@ public class Tablero extends javax.swing.JFrame {
 
         nombreJ4.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         nombreJ4.setText("Jugador4");
-        background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 640, -1, -1));
+        background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 630, -1, -1));
 
         nombreJ2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         nombreJ2.setText("Jugador2");
-        background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 210, -1, -1));
+        background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, -1, -1));
 
         imgJugador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
         background.add(imgJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
@@ -172,10 +172,10 @@ public class Tablero extends javax.swing.JFrame {
         background.add(imgJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
 
         imgJugador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 100, -1, -1));
+        background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 100, -1, -1));
 
         imgJugador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 530, -1, -1));
+        background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 530, -1, -1));
 
         puntaje1.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         puntaje1.setText("Puntaje1");
@@ -183,7 +183,7 @@ public class Tablero extends javax.swing.JFrame {
 
         puntaje2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         puntaje2.setText("Puntaje2");
-        background.add(puntaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 230, -1, -1));
+        background.add(puntaje2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 220, -1, -1));
 
         puntaje3.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         puntaje3.setText("Puntaje3");
@@ -191,7 +191,7 @@ public class Tablero extends javax.swing.JFrame {
 
         puntaje4.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
         puntaje4.setText("Puntaje4");
-        background.add(puntaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 660, -1, -1));
+        background.add(puntaje4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 650, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,9 +203,7 @@ public class Tablero extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
