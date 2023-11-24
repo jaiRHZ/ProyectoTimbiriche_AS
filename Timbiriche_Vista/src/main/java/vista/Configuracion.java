@@ -104,7 +104,7 @@ public class Configuracion extends javax.swing.JFrame {
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
         imgJugador4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, -1, -1));
+        background.add(imgJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, -1));
 
         btnCancelar.setBackground(new java.awt.Color(248, 20, 19));
         btnCancelar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -113,7 +113,7 @@ public class Configuracion extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
         btnCancelar.setBorderPainted(false);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.setPreferredSize(new java.awt.Dimension(90, 50));
         background.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 120, 38));
 
@@ -135,41 +135,64 @@ public class Configuracion extends javax.swing.JFrame {
         nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombreJ1.setText("Jugador 1");
-        background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         nombreJ2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ2.setText("Jugador 2");
-        background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
+        background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, -1));
 
         nombreJ3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ3.setText("Jugador 3");
-        background.add(nombreJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+        background.add(nombreJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         nombreJ4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         nombreJ4.setText("Jugador 4");
-        background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, -1, -1));
+        background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
         imgJugador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgJugador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        background.add(imgJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         imgJugador2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        background.add(imgJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
 
         imgJugador3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
-        background.add(imgJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        background.add(imgJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
+        comBoxColores.setBackground(new java.awt.Color(0, 109, 182));
+        comBoxColores.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        comBoxColores.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        background.add(comBoxColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+        comBoxColores.setBorder(null);
+        comBoxColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores.setMinimumSize(new java.awt.Dimension(92, 30));
+        background.add(comBoxColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
+        comBoxColores1.setBackground(new java.awt.Color(0, 109, 182));
+        comBoxColores1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        comBoxColores1.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        background.add(comBoxColores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        comBoxColores1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores1.setMinimumSize(new java.awt.Dimension(92, 30));
+        background.add(comBoxColores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
+        comBoxColores2.setBackground(new java.awt.Color(0, 109, 182));
+        comBoxColores2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        comBoxColores2.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        background.add(comBoxColores2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+        comBoxColores2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores2.setMinimumSize(new java.awt.Dimension(92, 30));
+        comBoxColores2.setPreferredSize(new java.awt.Dimension(92, 30));
+        background.add(comBoxColores2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
+        comBoxColores3.setBackground(new java.awt.Color(0, 109, 182));
+        comBoxColores3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        comBoxColores3.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        background.add(comBoxColores3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, -1, -1));
+        comBoxColores3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores3.setMinimumSize(new java.awt.Dimension(92, 30));
+        comBoxColores3.setPreferredSize(new java.awt.Dimension(92, 30));
+        background.add(comBoxColores3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
