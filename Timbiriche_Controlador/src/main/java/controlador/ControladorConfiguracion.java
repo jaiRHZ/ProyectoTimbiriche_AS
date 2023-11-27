@@ -1,8 +1,11 @@
 package controlador;
 
+import aplicacion.TableroData;
+import dominio.Jugador;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import vista.Configuracion;
@@ -16,6 +19,8 @@ public class ControladorConfiguracion implements ActionListener {
 
     Configuracion configuracion;
     Tablero tablero;
+    Jugador jugador;
+    TableroData tableroData;
     private String colorSeleccionado;
 
     public ControladorConfiguracion() {
@@ -56,15 +61,19 @@ public class ControladorConfiguracion implements ActionListener {
         //COMBOBOX ACTION
         if (e.getSource() == configuracion.comBoxColores) {
             Color color = Color.decode(extraerColor(configuracion.comBoxColores));
+            setColorJugador(color, 0);
         }
         if (e.getSource() == configuracion.comBoxColores1) {
             Color color = Color.decode(extraerColor(configuracion.comBoxColores1));
+            setColorJugador(color, 1);
         }
         if (e.getSource() == configuracion.comBoxColores2) {
             Color color = Color.decode(extraerColor(configuracion.comBoxColores2));
+            setColorJugador(color, 2);
         }
         if (e.getSource() == configuracion.comBoxColores3) {
             Color color = Color.decode(extraerColor(configuracion.comBoxColores3));
+            setColorJugador(color, 3);
         }
     }
 
@@ -103,7 +112,12 @@ public class ControladorConfiguracion implements ActionListener {
                 colorJava = "#666666";
                 break;
         }
-        System.out.println(colorSeleccionado);
         return colorJava;
+    }
+
+    public void setColorJugador(Color color, int jugador) {
+        List<Jugador> listaDeJugadores = tableroData.getJugadores();
+        Jugador jugadorActual = listaDeJugadores.get(jugador);
+        jugadorActual.setColor(color);
     }
 }
