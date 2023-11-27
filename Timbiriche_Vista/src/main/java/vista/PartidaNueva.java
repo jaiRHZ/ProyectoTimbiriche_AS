@@ -36,8 +36,8 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
 
     private void cargarJugadores() {
         //Jugador Principal
-        this.nombreJ1.setText(tableroData.getJugadorPrincipal().getNombre());
-        this.imgJugador1.setIcon(tableroData.getJugadorPrincipal().getIcono());
+//        this.nombreJ1.setText(tableroData.getJugadorPrincipal().getNombre());
+//        this.imgJugador1.setIcon(tableroData.getJugadorPrincipal().getIcono());
     }
 
     /**

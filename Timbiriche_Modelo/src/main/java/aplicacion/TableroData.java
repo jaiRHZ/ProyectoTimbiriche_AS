@@ -26,6 +26,7 @@ public class TableroData implements IObservable {
     private Double distanciaPuntos;
     private Punto puntoA;
     private Punto puntoB;
+    private String codigoPartida;
     
     public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
@@ -72,6 +73,14 @@ public class TableroData implements IObservable {
 
     public Punto getPuntoB() {
         return puntoB;
+    }
+
+    public String getCodigoPartida() {
+        return codigoPartida;
+    }
+
+    public void setCodigoPartida(String codigoPartida) {
+        this.codigoPartida = codigoPartida;
     }
 
     public void vaciarPuntos() {

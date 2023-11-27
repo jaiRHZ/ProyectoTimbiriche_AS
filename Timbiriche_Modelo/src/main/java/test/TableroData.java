@@ -24,7 +24,7 @@ public class TableroData implements IObservable {
     private List<IObservador> observadoresPantalla;
     private List<Punto> puntos;
     private Jugador jugadorPrincipal;
-    private List<Jugador> jugadores;
+    private static List<Jugador> jugadores;
     private List<Linea> lineas;
     private List<Cuadrado> cuadrados;
     private Double distanciaPuntos;
