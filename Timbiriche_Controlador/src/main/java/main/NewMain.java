@@ -33,14 +33,16 @@ public class NewMain {
 //        ControladorTablero controladorTablero = new ControladorTablero(10, jugadores);
 //
 //        controladorTablero.iniciar();
-        TableroData tableroData = new TableroData();
-        tableroData.setJugadorPrincipal(new Jugador("Jorge"));
-        ControladorPartidaNueva cpn = new ControladorPartidaNueva(tableroData);
-        cpn.nuevoJugador(new Jugador("Jorge"));
-        cpn.nuevoJugador(new Jugador("Daniel"));
-        cpn.nuevoJugador(new Jugador("Fernando"));
-        cpn.nuevoJugador(new Jugador("Luis"));
-        cpn.iniciarPantalla();
+//        TableroData tableroData = new TableroData();
+//        tableroData.setJugadorPrincipal(new Jugador("Jorge"));
+//        ControladorPartidaNueva cpn = new ControladorPartidaNueva(tableroData);
+//        cpn.nuevoJugador(new Jugador("Jorge"));
+//        cpn.nuevoJugador(new Jugador("Daniel"));
+//        cpn.nuevoJugador(new Jugador("Fernando"));
+//        cpn.nuevoJugador(new Jugador("Luis"));
+//        cpn.iniciarPantalla();
+
+
         
 //        ControladorRegistro cr = new ControladorRegistro();
 //        cr.iniciarPantalla();
