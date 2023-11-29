@@ -113,7 +113,7 @@ public class Configuracion extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(null);
         btnCancelar.setBorderPainted(false);
-        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCancelar.setPreferredSize(new java.awt.Dimension(90, 50));
         background.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 120, 38));
 
@@ -164,7 +164,7 @@ public class Configuracion extends javax.swing.JFrame {
         comBoxColores.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
         comBoxColores.setBorder(null);
-        comBoxColores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comBoxColores.setMinimumSize(new java.awt.Dimension(92, 30));
         background.add(comBoxColores, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
@@ -172,7 +172,7 @@ public class Configuracion extends javax.swing.JFrame {
         comBoxColores1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         comBoxColores1.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        comBoxColores1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comBoxColores1.setMinimumSize(new java.awt.Dimension(92, 30));
         background.add(comBoxColores1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
@@ -180,7 +180,7 @@ public class Configuracion extends javax.swing.JFrame {
         comBoxColores2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         comBoxColores2.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        comBoxColores2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comBoxColores2.setMinimumSize(new java.awt.Dimension(92, 30));
         comBoxColores2.setPreferredSize(new java.awt.Dimension(92, 30));
         background.add(comBoxColores2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
@@ -189,7 +189,7 @@ public class Configuracion extends javax.swing.JFrame {
         comBoxColores3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         comBoxColores3.setForeground(new java.awt.Color(255, 255, 255));
         comBoxColores3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Colores...    ", "Negro", "Blanco", "Rojo", "Verde", "Azul", "Amarillo", "Cian", "Morado", "Gris claro", "Gris oscuro" }));
-        comBoxColores3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        comBoxColores3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         comBoxColores3.setMinimumSize(new java.awt.Dimension(92, 30));
         comBoxColores3.setPreferredSize(new java.awt.Dimension(92, 30));
         background.add(comBoxColores3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
