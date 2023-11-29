@@ -9,7 +9,7 @@ import java.awt.Graphics;
 //import aplicacion.TableroData;
 import gestor.GestorTableroPanel;
 import observador.IObservador;
-import test.TableroData;
+import aplicacion.TableroData;
 
 /**
  *

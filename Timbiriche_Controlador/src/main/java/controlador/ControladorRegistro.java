@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import vista.Registro;
-import test.TableroData;
+import aplicacion.TableroData;
 
 /**
  *

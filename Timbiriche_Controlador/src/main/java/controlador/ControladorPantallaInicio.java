@@ -3,7 +3,7 @@ package controlador;
 import dominio.Jugador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import test.TableroData;
+import aplicacion.TableroData;
 import vista.PantallaInicio;
 
 /**

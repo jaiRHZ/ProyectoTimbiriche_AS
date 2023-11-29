@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import dominio.Punto;
-import test.TableroData;
+import aplicacion.TableroData;
 //import aplicacion.TableroData;
 import vista.Tablero;
 import vista.TableroPanel;

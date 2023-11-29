@@ -4,11 +4,13 @@
  */
 package vista;
 
+import observador.IObservador;
+
 /**
  *
  * @author Jairo G. Rodriguez Hernandez 00000213248
  */
-public class LobbyEspera extends javax.swing.JFrame {
+public class LobbyEspera extends javax.swing.JFrame implements IObservador{
 
     /**
      * Creates new form LobbyEspera
@@ -100,7 +102,7 @@ public class LobbyEspera extends javax.swing.JFrame {
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setPreferredSize(new java.awt.Dimension(130, 40));
         background.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, -1, -1));
 
@@ -110,7 +112,7 @@ public class LobbyEspera extends javax.swing.JFrame {
         btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/aceptar.png"))); // NOI18N
         btnConfirmar.setText("Confirmar");
         btnConfirmar.setBorder(null);
-        btnConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnConfirmar.setPreferredSize(new java.awt.Dimension(130, 40));
         background.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
@@ -119,7 +121,7 @@ public class LobbyEspera extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 50));
 
         btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
-        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseClicked(evt);
@@ -127,7 +129,7 @@ public class LobbyEspera extends javax.swing.JFrame {
         });
 
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
-        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -237,4 +239,9 @@ public class LobbyEspera extends javax.swing.JFrame {
     public javax.swing.JLabel nombreJ3;
     public javax.swing.JLabel nombreJ4;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actualizar() {
+        this.repaint();
+    }
 }

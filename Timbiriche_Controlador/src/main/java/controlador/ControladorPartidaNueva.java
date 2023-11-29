@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import test.TableroData;
+import aplicacion.TableroData;
 import vista.PartidaNueva;
 
 /**
@@ -59,18 +59,18 @@ public class ControladorPartidaNueva implements ActionListener {
         partidaNueva.setVisible(true);
     }
 
-    public int dimensionSeleccionada() {
-
-        ActionListener actionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                JButton botonPresionado = (JButton) e.getSource();
-                dimension = Integer.parseInt(e.getActionCommand());
-                System.out.println("DIMENSION: " + dimension);
-            }
-        };
-        return dimension;
-    }
+//    public int dimensionSeleccionada() {
+//
+//        ActionListener actionListener = new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+////                JButton botonPresionado = (JButton) e.getSource();
+//                dimension = Integer.parseInt(e.getActionCommand());
+//                System.out.println("DIMENSION: " + dimension);
+//            }
+//        };
+//        return dimension;
+//    }
 
     public void jugadoresListos(boolean listos) {
 
@@ -117,16 +117,28 @@ public class ControladorPartidaNueva implements ActionListener {
             }
         }
     }
-
-    public void nuevoJugador(Jugador jugador) {
-        if (tableroData.getJugadores() == null || tableroData.getJugadores().size() < 3) {
-            tableroData.agregarJugador(jugador);
-            partidaNueva.nombreJ4.setText(this.lider.getNombre());
+    
+    public void nuevoJugador(Jugador jugador){
+        tableroData.agregarJugador(jugador);
+        cargarInfoTablero(jugador);
+    }
+    
+    public void setNombresLabels(){
+        for (int i = 0; i < tableroData.getJugadores().size(); i++) {
+            
+        }
+    }
+    
+    public void cargarInfoTablero(Jugador jugador){
+        if (tableroData.getJugadores().size() <= 4) {
+            System.out.println("ENTRE");
+//            partidaNueva.nombreJ4.setText(this.lider.getNombre());
             //SE MUESTRA LA PANTALLA DEL LOBBY.
             //--------------------------------------------------------------------
             /* Se obtiene la posicion en la lista del jugador para poder asignarle
             un espacio en la pantalla. */
-            int posicionLista = tableroData.getJugadores().indexOf(jugador) + 1;
+            
+            int posicionLista = tableroData.getJugadores().indexOf(jugador)+1;
             switch (posicionLista) {
                 case 1:
                     partidaNueva.nombreJ1.setText(jugador.getNombre());
@@ -140,6 +152,11 @@ public class ControladorPartidaNueva implements ActionListener {
                     partidaNueva.nombreJ3.setText(jugador.getNombre());
                     //SE REGISTRA LA IMAGEN DE PERFIL
                     break;
+                case 4:
+                partidaNueva.nombreJ4.setText(jugador.getNombre());
+                //SE REGISTRA LA IMAGEN DE PERFIL
+                break;
+                
             }
 
         } else {

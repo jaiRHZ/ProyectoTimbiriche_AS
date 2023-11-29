@@ -8,7 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import test.TableroData;
+import aplicacion.TableroData;
 
 /**
  *

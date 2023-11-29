@@ -20,7 +20,7 @@ public class PruebasControladorConfiguracion {
         // TODO code application logic here
 
         ControladorConfiguracion configuracion = new ControladorConfiguracion();
-
+        
         configuracion.iniciar();
     }
 

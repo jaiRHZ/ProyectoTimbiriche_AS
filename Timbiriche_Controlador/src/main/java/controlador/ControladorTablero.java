@@ -11,7 +11,7 @@ import java.util.List;
 import javax.swing.JButton;
 import dominio.Jugador;
 import dominio.Punto;
-import test.TableroData;
+import aplicacion.TableroData;
 //import aplicacion.TableroData;
 import vista.Configuracion;
 import vista.Tablero;

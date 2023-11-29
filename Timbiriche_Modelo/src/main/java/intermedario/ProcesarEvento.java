@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 import observador.IObservable;
 import observador.IObservador;
 import observador.IObservadorEvento;
-import test.TableroData;
+import aplicacion.TableroData;
 
 /**
  *
@@ -99,12 +99,17 @@ public class ProcesarEvento implements IObservadorEvento {
         EventosTimbiriche evt = gson.fromJson(mensaje, EventosTimbiriche.class);
         System.out.println(evt.toString());
         if (evt.getTipo().equals("linea")) {
-            System.out.println("hola");
+          
             Linea linea = gson.fromJson(gson.toJsonTree(evt.getObject()), Linea.class);
             System.out.println(linea.toString());
             tableroData.addLinea(linea);
 
         }
+        
+        
+        
+        
+        
 
      
 
