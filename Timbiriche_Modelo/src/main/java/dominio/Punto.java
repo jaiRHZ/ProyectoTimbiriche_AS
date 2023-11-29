@@ -5,13 +5,17 @@
  */
 package dominio;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  *
  * @author HP
  */
 public class Punto {
 
+    @SerializedName("x")
     private int x;
+    @SerializedName("y")
     private int y;
 
     public Punto() {

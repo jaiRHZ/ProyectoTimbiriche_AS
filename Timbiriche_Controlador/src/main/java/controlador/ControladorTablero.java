@@ -31,7 +31,7 @@ public class ControladorTablero implements ActionListener {
 
     public ControladorTablero(int numeroPuntos,
             TableroData tableroData) {
-        this.tablero = new Tablero();
+        this.tablero = new Tablero(tableroData);
         this.tableroPanel = new TableroPanel();
         tableroPanel.setSize(600, 600);
         this.tableroData = tableroData;

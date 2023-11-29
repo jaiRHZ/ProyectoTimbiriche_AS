@@ -7,8 +7,11 @@ package test;
 
 import dominio.Jugador;
 import dominio.Linea;
+import gestor.RecibirEvento;
+import intermedario.EventosTimbiriche;
 import java.util.ArrayList;
 import java.util.List;
+import intermedario.ProcesarEvento;
 
 /**
  *
@@ -21,10 +24,20 @@ public class Test {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//
+// F
 //        TableroData tableroData = new TableroData(10, 900, 900);
 //        List<Linea> lineas = new ArrayList<>();
 //        tableroData.setLineas(lineas);
+
+//        Jugador j1 = new Jugador("Daniel");
+//        Jugador j2 = new Jugador("Abel");
+//RecibirEvento recibirEvento = new RecibirEvento();
+//        ProcesarEvento evento = new ProcesarEvento();
+//        recibirEvento.agregarObservador(evento);
+////        evento.iniciarJugador();
+////        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j1));
+////        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j1));
+//        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j2));
 
     }
 

@@ -9,8 +9,15 @@ import dominio.Cuadrado;
 import dominio.Jugador;
 import dominio.Linea;
 import dominio.Punto;
+import gestor.RecibirEvento;
+import intermedario.EventosTimbiriche;
+import intermedario.ProcesarEvento;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import observador.IObservable;
 import observador.IObservador;
@@ -30,12 +37,14 @@ public class TableroData implements IObservable {
     private Double distanciaPuntos;
     private Punto puntoA;
     private Punto puntoB;
-
+    private ProcesarEvento procesarEvento;
+//    private RecibirEvento recibirEvento = new RecibirEvento();
     private String codigoPartida;
 
     public TableroData() {
         this.observadoresPantalla = new ArrayList<>();
         this.jugadores = new ArrayList<>();
+
     }
 
 //    public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
@@ -43,7 +52,7 @@ public class TableroData implements IObservable {
 //        this.lineas = new ArrayList<>();
 //        this.cuadrados = new ArrayList<>();
 //        this.observadoresPantalla = new ArrayList<>();
-//        this.calcularDistancia();
+//        this.calcularDistancia();$
 //
 //    }
     public void iniciarTablero(int cantidadPuntos, int anchoTablero, int altoTablero) {
@@ -52,6 +61,8 @@ public class TableroData implements IObservable {
         this.cuadrados = new ArrayList<>();
         this.observadoresPantalla = new ArrayList<>();
         this.calcularDistancia();
+        this.procesarEvento = new ProcesarEvento(this);
+        procesarEvento.iniciarJugador();
     }
 
     public List<IObservador> getObservadoresPantalla() {
@@ -109,6 +120,12 @@ public class TableroData implements IObservable {
 
     public void setLineas(List<Linea> lineas) {
         this.lineas = lineas;
+    }
+
+    public void addLinea(Linea linea) {
+        this.lineas.add(linea);
+        System.out.println(linea.toString());
+        actualizarTodos();
     }
 
     public Double getDistanciaPuntos() {
@@ -196,8 +213,10 @@ public class TableroData implements IObservable {
         if (distancia.equals(distanciaPuntos)) {
 
             Linea linea = acomodarCordenadas(new Linea(puntoA, puntoB));
+
             this.validarCuadrado(linea);
             this.lineas.add(linea);
+            this.procesarEvento.enviarEvento(new EventosTimbiriche("linea", linea));
             return true;
         } else {
             return false;

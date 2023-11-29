@@ -1,0 +1,6 @@
+gestor\EnviarEvento.class
+pruebas\Productor.class
+observador\IObservableEvento.class
+gestor\RecibirEvento.class
+observador\IObservadorEvento.class
+pruebas\Consumidor.class

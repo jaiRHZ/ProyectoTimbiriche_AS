@@ -6,7 +6,9 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import test.TableroData;
 
 /**
  *
@@ -14,11 +16,19 @@ import javax.swing.JPanel;
  */
 public class Tablero extends javax.swing.JFrame {
 
+    private TableroData tableroData;
+
     /**
      * Creates new form Tablero
      */
     public Tablero() {
         initComponents();
+    }
+
+    public Tablero(TableroData tableroData) {
+        initComponents();
+        this.tableroData = tableroData;
+        cargarJugadores();
     }
 
     public void cargarTablero(JPanel panelTablero) {
@@ -30,6 +40,11 @@ public class Tablero extends javax.swing.JFrame {
         panelPrincipal.add(panelTablero, BorderLayout.CENTER);
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
+    }
+
+    private void cargarJugadores() {
+        this.imgJugador1.setIcon(tableroData.getJugadorPrincipal().getIcono());
+        this.nombreJ1.setText(tableroData.getJugadorPrincipal().getNombre());
     }
 
     /**
@@ -64,7 +79,6 @@ public class Tablero extends javax.swing.JFrame {
         setTitle("Tablero");
         setMaximumSize(new java.awt.Dimension(1200, 1000));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 800));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
@@ -92,7 +106,7 @@ public class Tablero extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1500, 50));
 
         btnMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/minimizar.png"))); // NOI18N
-        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMinimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMinimizarMouseClicked(evt);
@@ -100,7 +114,7 @@ public class Tablero extends javax.swing.JFrame {
         });
 
         btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/cancelar.png"))); // NOI18N
-        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCerrarMouseClicked(evt);
@@ -137,7 +151,7 @@ public class Tablero extends javax.swing.JFrame {
         btnConfiguracion.setActionCommand("configuracion");
         btnConfiguracion.setBorder(null);
         btnConfiguracion.setBorderPainted(false);
-        btnConfiguracion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfiguracion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnConfiguracion.setFocusPainted(false);
         btnConfiguracion.setPreferredSize(new java.awt.Dimension(150, 50));
         btnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
@@ -212,7 +226,7 @@ public class Tablero extends javax.swing.JFrame {
 
     private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnConfiguracionActionPerformed
 
     private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked

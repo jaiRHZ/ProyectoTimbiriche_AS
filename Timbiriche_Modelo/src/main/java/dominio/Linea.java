@@ -5,6 +5,7 @@
  */
 package dominio;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
 /**
@@ -13,7 +14,9 @@ import java.util.Objects;
  */
 public class Linea {
 
+    @SerializedName("puntoA")
     private Punto puntoA;
+    @SerializedName("puntoB")
     private Punto puntoB;
 
     public Linea() {

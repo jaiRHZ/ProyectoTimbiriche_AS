@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import test.TableroData;
 import vista.PartidaNueva;
 
@@ -26,7 +27,7 @@ public class ControladorPartidaNueva implements ActionListener {
     int idPartida = 0;
     String codigoPartida;
     private Jugador lider;
-    int dimension;
+    Integer dimension;
     ControladorTablero controladorTablero;
 
     public ControladorPartidaNueva() {
@@ -83,21 +84,29 @@ public class ControladorPartidaNueva implements ActionListener {
             System.out.println("DIMENSION: " + e.getActionCommand());
         } else {
             //LOGICA PARA COMENZAR PARTIDA
-            System.out.println("COMENZAR");
-            this.controladorTablero = new ControladorTablero(dimension, tableroData);
-            controladorTablero.iniciar();
+            if (dimension == null) {
+                JOptionPane.showMessageDialog(null, "Seleccione una dimensión primero");
+            } else {
+                System.out.println("COMENZAR");
+                this.controladorTablero = new ControladorTablero(dimension, tableroData);
+                controladorTablero.iniciar();
+                partidaNueva.dispose();
+            }
+
         }
     }
 
-    public void comenzarPartidaNueva(boolean listo) {
-
-        if (listo == true) {
-            this.controladorTablero = new ControladorTablero(dimension, tableroData);
-            controladorTablero.iniciar();
-            //Se envia true a la pantalla de lobby de espera para indicar que
-            //la partida ha comenzado y que muestre el tablero.
-        }
-    }
+//    public void comenzarPartidaNueva(boolean listo) {
+//
+//        if (listo == true) {
+//            this.controladorTablero = new ControladorTablero(dimension, tableroData);
+//            controladorTablero.iniciar();
+//            partidaNueva.dispose();
+//
+//            //Se envia true a la pantalla de lobby de espera para indicar que
+//            //la partida ha comenzado y que muestre el tablero.
+//        }
+//    }
 
     /* Este metodo se utiliza cuando un jugador se sale de la partida.
      */
