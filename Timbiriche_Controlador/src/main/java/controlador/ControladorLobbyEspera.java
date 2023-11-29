@@ -5,6 +5,7 @@ import dominio.Jugador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import test.TableroData;
+import dominio.Jugador;
 import vista.LobbyEspera;
 
 
@@ -15,11 +16,19 @@ import vista.LobbyEspera;
 public class ControladorLobbyEspera implements ActionListener{
     TableroData tableroData;
     LobbyEspera lobbyEspera;
+    ControladorTablero controladorTablero;
+    ControladorPantallaInicio controladorPantallaInicio;
 //    Jugador jugador;
 
     public ControladorLobbyEspera() {
-        tableroData = new TableroData();
-        lobbyEspera = new LobbyEspera();
+        this.tableroData = tableroData;
+        this.lobbyEspera = lobbyEspera;
+        this.lobbyEspera.btnConfirmar.addActionListener(this);
+        this.lobbyEspera.btnSalir.addActionListener(this);
+    }
+    
+    public void iniciarPantalla(){
+        this.lobbyEspera.setVisible(true);
     }
     
 //    public void nuevoJugador(Jugador jugador) {
@@ -55,6 +64,15 @@ public class ControladorLobbyEspera implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (e.getSource() == lobbyEspera.btnConfirmar) {
+            //ESTO SE SOLUCIONA CON EVENTOS
+            controladorTablero = new ControladorTablero(0, tableroData);
+            controladorTablero.iniciar();
+            lobbyEspera.dispose();
+        } if (e.getSource() == lobbyEspera.btnSalir) {
+            controladorPantallaInicio = new ControladorPantallaInicio(tableroData);
+            controladorPantallaInicio.iniciarPantalla();
+            lobbyEspera.dispose();
+        }
     }
 }
