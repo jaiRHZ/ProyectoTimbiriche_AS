@@ -18,7 +18,7 @@ public class EventosTimbiriche {
     private Object object;
 
     @SerializedName("distinatario")
-    private String distinatario = "logica";
+    private String distinatario = "jugadores";
 
     public EventosTimbiriche() {
     }

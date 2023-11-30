@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 import observador.IObservable;
 import observador.IObservador;
 import observador.IObservadorEvento;
-import aplicacion.TableroData;
+import logica.TableroData;
 
 /**
  *
@@ -68,17 +68,21 @@ public class ProcesarEvento implements IObservadorEvento {
     }
 
     @Override
+
     public void nuevoMensajeRecibido(String mensaje) {
 
         System.out.println("..........");
         EventosTimbiriche evt = gson.fromJson(mensaje, EventosTimbiriche.class);
-        if (evt.getDistinatario().equals("jugadores")) {
+        if (evt.getDistinatario().equals("logica")) {
+            System.out.println(evt.toString());
             if (evt.getTipo().equals("linea")) {
+
                 Linea linea = gson.fromJson(gson.toJsonTree(evt.getObject()), Linea.class);
                 System.out.println(linea.toString());
                 tableroData.addLinea(linea);
 
             }
+
         }
 
     }
