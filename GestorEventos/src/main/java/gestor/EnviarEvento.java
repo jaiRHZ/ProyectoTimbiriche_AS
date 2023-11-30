@@ -4,14 +4,10 @@
  */
 package gestor;
 
-import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -20,20 +16,26 @@ import java.util.concurrent.TimeoutException;
  */
 public class EnviarEvento {
 
-    private static final String EXCHANGE_NAME = "fanout-exchange";
+    private static final String EXCHANGE_NAME = "mensajes-videojuego";
+    private static final String RABBITMQ_HOST = "187.188.79.83"; // Cambia esto
 
     public void enviarEvento(String evento) throws IOException, TimeoutException {
         try {
             ConnectionFactory connectionFactory = new ConnectionFactory();
+            connectionFactory.setHost("192.168.100.6"); // Reemplaza con la dirección IP del servidor RabbitMQ
+            connectionFactory.setUsername("guest");
+            connectionFactory.setPassword("guest");
+            connectionFactory.setVirtualHost("/");
+ 
             Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel();
 
             // Declarar el intercambio de tipo "fanout"
-            channel.exchangeDeclare("miIntercambioFanout", "fanout");
+            channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
             // Mensaje a enviar
             // Publicar el mensaje en el intercambio
-            channel.basicPublish("miIntercambioFanout", "", null, evento.getBytes());
+            channel.basicPublish(EXCHANGE_NAME, "", null, evento.getBytes());
 
             // Cerrar conexiones
             channel.close();
@@ -43,29 +45,5 @@ public class EnviarEvento {
             e.printStackTrace();
         }
     }
-//    public void enviarEvento(String evento) throws IOException, TimeoutException {
-//
-//        ConnectionFactory connectionFactory = new ConnectionFactory();
-//        try (Connection connection = connectionFactory.newConnection()) {
-//
-//            String nombreUsuario = "daniel";
-//
-//            // Crear una cola única para cada consumidor basada en el nombre del usuario
-//            String queueName = "cola-" + nombreUsuario;
-//
-//            try (Channel channel = connection.createChannel()) {
-//                channel.queueDeclare(queueName, false, false, false, null);
-//
-//                DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-//                    String mensaje = new String(delivery.getBody(), StandardCharsets.UTF_8);
-//                    System.out.println(mensaje);
-//                };
-//
-//                channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {
-//                });
-//
-//            }
-//        }
-//
-//    }
+
 }
