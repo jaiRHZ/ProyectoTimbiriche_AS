@@ -1,6 +1,6 @@
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\pruebas\Productor.java
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\gestor\EnviarEvento.java
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\pruebas\Consumidor.java
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\observador\IObservadorEvento.java
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\observador\IObservableEvento.java
-C:\Users\HP\Desktop\ProyectoTimbiriche_AS\GestorEventos\src\main\java\gestor\RecibirEvento.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\gestor\RecibirEvento.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\observador\IObservableEvento.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\observador\IObservadorEvento.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\pruebas\Consumidor.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\pruebas\Productor.java
+C:\Users\Jorge\Documents\ProyectoTimbiriche_AS\GestorEventos\src\main\java\gestor\EnviarEvento.java
