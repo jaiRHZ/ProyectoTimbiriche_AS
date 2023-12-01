@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import aplicacion.TableroData;
+import javax.swing.JLabel;
 import vista.PartidaNueva;
 
 /**
@@ -22,29 +23,39 @@ public class ControladorPartidaNueva implements ActionListener {
 
     PartidaNueva partidaNueva;
     TableroData tableroData;
-//    List listaJugadores = new ArrayList();
+    List<Jugador> listaJugadores;
     ApPartidaNueva apPartidaNueva;
     int idPartida = 0;
     String codigoPartida;
     private Jugador lider;
     Integer dimension;
     ControladorTablero controladorTablero;
+//    Jugador jugador;
+    private JLabel[] labels;
+    
 
     public ControladorPartidaNueva() {
     }
 
     public ControladorPartidaNueva(TableroData tablero) {
-
         idPartida++;
         this.tableroData = tablero;
         this.lider = tableroData.getJugadorPrincipal();
-        apPartidaNueva = new ApPartidaNueva();
+        apPartidaNueva = new ApPartidaNueva(tableroData);
         partidaNueva = new PartidaNueva();
         this.tableroData.agregarObservador(partidaNueva);
         this.tableroData.setJugadorPrincipal(lider);
         codigoPartida = apPartidaNueva.generarCodigo();
         this.tableroData.setCodigoPartida(codigoPartida);
         this.generarEventosConfiguracion();
+        this.listaJugadores =  new ArrayList(); 
+        labels = new JLabel[4];
+        labels[0] = this.partidaNueva.nombreJ1;
+        labels[1] = this.partidaNueva.nombreJ2;
+        labels[2] = this.partidaNueva.nombreJ3;
+        labels[3] = this.partidaNueva.nombreJ4;
+        
+        
     }
 
     private void generarEventosConfiguracion() {
@@ -55,24 +66,14 @@ public class ControladorPartidaNueva implements ActionListener {
     }
 
     public void iniciarPantalla() {
-        partidaNueva.setCargarInfo(this.tableroData);
-        partidaNueva.setVisible(true);
+        this.partidaNueva.setCargarInfo(this.tableroData);
+        mostrarJugadores();
+        this.partidaNueva.setVisible(true);
+        
     }
 
-//    public int dimensionSeleccionada() {
-//
-//        ActionListener actionListener = new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-////                JButton botonPresionado = (JButton) e.getSource();
-//                dimension = Integer.parseInt(e.getActionCommand());
-//                System.out.println("DIMENSION: " + dimension);
-//            }
-//        };
-//        return dimension;
-//    }
     public void jugadoresListos(boolean listos) {
-
+        
     }
 
     @Override
@@ -94,55 +95,41 @@ public class ControladorPartidaNueva implements ActionListener {
 
         }
     }
+    
+    /*Cuando se ingresa el nuevo jugador. Cuando un jugador crea una partida
+    se invoca este metodo para ingresarlo a la lista. */
+    public boolean nuevoJugador(Jugador jugador){
+        if(this.tableroData.getJugadores().isEmpty() || tableroData.getJugadores().size() < 4){
+            this.tableroData.agregarJugador(jugador);
+            if(this.tableroData.getJugadores().size() == 1){
+                System.out.println("Jug: "+jugador.getNombre());
+                this.tableroData.setJugadorPrincipal(this.tableroData.getJugadores().get(0));
+                mostrarJugadores();
+            }
+            mostrarJugadores();
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public void mostrarJugadores(){
+        for (int i = 0; i < this.tableroData.getJugadores().size(); i++) {
+            if(labels[i].getText().isEmpty() || labels[i].getText() == null){
+                labels[i].setText(this.tableroData.getJugadores().get(i).getNombre());
+            }
+        }
+    }
+    
+    public void comenzarPartidaNueva(boolean listo) {
 
-//    public void comenzarPartidaNueva(boolean listo) {
-//
-//        if (listo == true) {
-//            this.controladorTablero = new ControladorTablero(dimension, tableroData);
-//            controladorTablero.iniciar();
-//            partidaNueva.dispose();
-//
-//            //Se envia true a la pantalla de lobby de espera para indicar que
-//            //la partida ha comenzado y que muestre el tablero.
-//        }
-//    }
+        if (listo == true) {
+            this.controladorTablero = new ControladorTablero(dimension, tableroData);
+            controladorTablero.iniciar();
+            partidaNueva.dispose();
 
-    /* Este metodo se utiliza cuando un jugador se sale de la partida.
-     */
-//    public void cargarInfoTablero(Jugador jugador) {
-//        if (tableroData.getJugadores().size() <= 4) {
-//            System.out.println("ENTRE");
-////            partidaNueva.nombreJ4.setText(this.lider.getNombre());
-//            //SE MUESTRA LA PANTALLA DEL LOBBY.
-//            //--------------------------------------------------------------------
-//            /* Se obtiene la posicion en la lista del jugador para poder asignarle
-//            un espacio en la pantalla. */
-//
-//            int posicionLista = tableroData.getJugadores().indexOf(jugador) + 1;
-//            switch (posicionLista) {
-//                case 1:
-//                    partidaNueva.nombreJ1.setText(jugador.getNombre());
-//                    //SE REGISTRA LA IMAGEN DE PERFIL
-//                    break;
-//                case 2:
-//                    partidaNueva.nombreJ2.setText(jugador.getNombre());
-//                    //SE REGISTRA LA IMAGEN DE PERFIL
-//                    break;
-//                case 3:
-//                    partidaNueva.nombreJ3.setText(jugador.getNombre());
-//                    //SE REGISTRA LA IMAGEN DE PERFIL
-//                    break;
-//                case 4:
-//                    partidaNueva.nombreJ4.setText(jugador.getNombre());
-//                    //SE REGISTRA LA IMAGEN DE PERFIL
-//                    break;
-//
-//            }
-//
-//        } else {
-//            //Se muestra un cuadro de dialogo al jugador que solicita entrar 
-//            //indicando que la partida esta llena.
-////            JOptionPane.showMessageDialog(null);
-//        }
-//    }
+            //Se envia true a la pantalla de lobby de espera para indicar que
+            //la partida ha comenzado y que muestre el tablero.
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package controlador;
 
+import aplicacion.ApPartidaNueva;
 import dominio.Jugador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,15 +21,16 @@ public class ControladorUnirsePartida implements ActionListener {
     PantallaInicio pantallaInicio;
     TableroData tableroData;
     Validaciones validaciones;
-    Jugador jugador;
-    
+    ControladorPartidaNueva controlPartidaNueva;
+    ApPartidaNueva apPartidaNueva;
 
-    public ControladorUnirsePartida(Jugador jugador) {
+    public ControladorUnirsePartida(TableroData tableroData) {
         this.vistaCodigoPartida = new CodigoPartida();
-        this.tableroData = new TableroData();
+        this.tableroData = tableroData;
         this.pantallaInicio = new PantallaInicio();
         this.validaciones = new Validaciones();
-        this.jugador = jugador;
+        this.controlPartidaNueva = new ControladorPartidaNueva(tableroData);
+        this.apPartidaNueva = new ApPartidaNueva(tableroData);
     }
 
     public void generarEventos() {
@@ -40,12 +42,17 @@ public class ControladorUnirsePartida implements ActionListener {
         this.vistaCodigoPartida.setVisible(true);
     }
 
-    public void unirsePartida() {
+    public void unirsePartida(Jugador jugador) {
+        //Se revisa que el formato del codigo ingresado sea el correcto.
         if(validaciones.validarFormatoCodigoPartida(tableroData.getCodigoPartida())){
             // Se revisa si hay espacio disponible en la partida.
-            if(revisarEspacioLibre()){
-                
+            if(this.controlPartidaNueva.nuevoJugador(jugador)){
+                this.controlPartidaNueva.iniciarPantalla();
+                this.controlPartidaNueva.mostrarJugadores();
+            }else{
+                JOptionPane.showMessageDialog(null, "La partida esta llena.");
             }
+            
         }else{
             JOptionPane.showMessageDialog(null, "El formato del codigo es erroneo, deben ser 4 digitos alfanumericos en mayusculas. Graciah Joven :).");
         }
@@ -53,13 +60,13 @@ public class ControladorUnirsePartida implements ActionListener {
     
     /* Con este metodo se revisa en el lobby de partida si hay espacio libre
     para ingresar al jugador. */
-    public boolean revisarEspacioLibre(){
-        if(this.tableroData.getJugadores().size() < 4){
-            return true;
-        }else{
-            return false;
-        }
-    }
+//    public boolean revisarEspacioLibre(){
+//        if(this.tableroData.getJugadores().size() < 4){
+//            return true;
+//        }else{
+//            return false;
+//        }
+//    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

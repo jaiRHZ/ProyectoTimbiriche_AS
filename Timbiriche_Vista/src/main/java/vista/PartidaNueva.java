@@ -22,14 +22,14 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
      */
     public PartidaNueva() {
         initComponents();
-        this.gestorPartidaNueva = new GestorPartidaNueva();
+//        this.gestorPartidaNueva = new GestorPartidaNueva();
     }
 
     public void setCargarInfo(TableroData tableroData) {
         this.tableroData = tableroData;
         labelJugador.setText(tableroData.getJugadorPrincipal().getNombre());
         labelCodigo.setText(tableroData.getCodigoPartida());
-        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
+//        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
 
     }
 
@@ -72,7 +72,6 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Partida Nueva");
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 500));
         setResizable(false);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
@@ -89,11 +88,9 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         background.add(labelJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
         nombreJ3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        nombreJ3.setText("Jugador 3");
         background.add(nombreJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
         nombreJ4.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        nombreJ4.setText("Jugador 3");
         background.add(nombreJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
 
         imgJugador1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/avtDefault.png"))); // NOI18N
@@ -143,7 +140,6 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         background.add(btnVeinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 171, -1, -1));
 
         nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        nombreJ1.setText("Jugador 1");
         background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 283, -1, -1));
 
         btnTreinta.setBackground(new java.awt.Color(0, 109, 182));
@@ -157,7 +153,6 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         background.add(btnTreinta, new org.netbeans.lib.awtextra.AbsoluteConstraints(492, 171, -1, -1));
 
         nombreJ2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        nombreJ2.setText("Jugador 2");
         background.add(nombreJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 283, -1, -1));
 
         btnComenzar.setBackground(new java.awt.Color(0, 109, 182));

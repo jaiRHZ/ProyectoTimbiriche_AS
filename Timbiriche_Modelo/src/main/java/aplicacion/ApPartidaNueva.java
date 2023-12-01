@@ -4,14 +4,20 @@
  */
 package aplicacion;
 
+import dominio.Jugador;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Jorge
  */
 public class ApPartidaNueva {
     
-    public ApPartidaNueva() {
+    TableroData tableroData;
+    
+    public ApPartidaNueva(TableroData tableroData) {
+        this.tableroData = tableroData;
     }
     
     /*Metodo que crea un codigo unico para identificar la partida. */
@@ -29,4 +35,6 @@ public class ApPartidaNueva {
 
         return codigoBuilder.toString();
     }
+    
+    
 }

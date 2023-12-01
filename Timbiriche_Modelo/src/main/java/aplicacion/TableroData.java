@@ -31,7 +31,7 @@ public class TableroData implements IObservable {
     private List<IObservador> observadoresPantalla;
     private List<Punto> puntos;
     private Jugador jugadorPrincipal;
-    private static List<Jugador> jugadores;
+    private List<Jugador> jugadores;
     private List<Linea> lineas;
     private List<Cuadrado> cuadrados;
     private Double distanciaPuntos;
@@ -63,6 +63,7 @@ public class TableroData implements IObservable {
         this.calcularDistancia();
         this.procesarEvento = new ProcesarEvento(this);
         procesarEvento.iniciarJugador();
+        jugadores = new ArrayList<>();
     }
 
     public List<IObservador> getObservadoresPantalla() {
