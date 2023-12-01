@@ -41,7 +41,6 @@ public class ControladorPantallaInicio implements ActionListener {
         if (e.getSource() == this.pantallaInicio.btnPartidaNueva) {
             this.pantallaInicio.dispose();
             controladorPartidaNueva.iniciarPantalla();
-
         }
     }
 

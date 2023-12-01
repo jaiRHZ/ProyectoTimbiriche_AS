@@ -28,8 +28,7 @@ public class ControladorRegistro implements ActionListener {
     private Icon icon;
     private String colorSeleccionado;
     private Color color;
-    
-    
+
     public ControladorRegistro() {
         this.tableroData = new TableroData();
         this.registro = new Registro();
@@ -55,6 +54,8 @@ public class ControladorRegistro implements ActionListener {
             String nickname = registro.txtNickname.getText();
             if (nickname.equals("Crea tu Nickname")) {
                 JOptionPane.showMessageDialog(null, "El nickname del jugador está vacío");
+            } else if (color == null) {
+                JOptionPane.showMessageDialog(null, "El color del jugador está vacío");
             } else {
                 this.tableroData.setJugadorPrincipal(new Jugador(nickname, icon, color));
                 controladorPantallaInicio = new ControladorPantallaInicio(tableroData);
@@ -80,9 +81,15 @@ public class ControladorRegistro implements ActionListener {
 
 //        //COLORES
         if (e.getSource() == registro.comBoxColores) {
-            color = Color.decode(extraerColor(registro.comBoxColores));
+            try {
+                color = Color.decode(extraerColor(registro.comBoxColores));
+            } catch (NumberFormatException ex) {
+                color = null;
+                System.out.println(ex.getMessage());
+            }
+
         }
-        
+
         icon = cargarImagen("images/" + contador + ".jpg");
         //new ImageIcon(getClass().getClassLoader().getResource("images/" + contador + ".jpg"));
         registro.imgAvatar.setIcon(icon);
@@ -106,8 +113,7 @@ public class ControladorRegistro implements ActionListener {
         }
     }
 
-        
-    private String extraerColor(JComboBox<String> comboBox){
+    private String extraerColor(JComboBox<String> comboBox) {
         colorSeleccionado = (String) comboBox.getSelectedItem();
         String colorJava = "";
         switch (colorSeleccionado.toLowerCase()) {
