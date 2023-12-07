@@ -4,21 +4,18 @@
  */
 package intermedario;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dominio.Jugador;
 import dominio.Linea;
 import gestor.EnviarEvento;
 import gestor.RecibirEvento;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import observador.IObservable;
-import observador.IObservador;
 import observador.IObservadorEvento;
 import logica.TableroData;
 
@@ -37,7 +34,6 @@ public class ProcesarEvento implements IObservadorEvento {
         this.enviarEvento = new EnviarEvento();
         this.gson = new GsonBuilder().create();
         this.recibirEvento = new RecibirEvento();
-
         this.tableroData = tableroData;
         recibirEvento.agregarObservador(this);
     }
@@ -67,24 +63,20 @@ public class ProcesarEvento implements IObservadorEvento {
         }
     }
 
-    @Override
-
     public void nuevoMensajeRecibido(String mensaje) {
 
-        System.out.println("..........");
+        System.out.println("..........Logica");
         EventosTimbiriche evt = gson.fromJson(mensaje, EventosTimbiriche.class);
         if (evt.getDistinatario().equals("logica")) {
-            System.out.println(evt.toString());
             if (evt.getTipo().equals("linea")) {
-
                 Linea linea = gson.fromJson(gson.toJsonTree(evt.getObject()), Linea.class);
                 System.out.println(linea.toString());
                 tableroData.addLinea(linea);
+            } else if (evt.getTipo().equals("jugadorNuevo")) {
 
+                Jugador jugador = gson.fromJson(gson.toJsonTree(evt.getObject()), Jugador.class);
+                tableroData.addJugador(jugador);
             }
-
         }
-
     }
-
 }

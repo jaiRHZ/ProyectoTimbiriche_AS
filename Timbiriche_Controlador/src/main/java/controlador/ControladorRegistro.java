@@ -28,6 +28,7 @@ public class ControladorRegistro implements ActionListener {
     private Icon icon;
     private String colorSeleccionado;
     private Color color;
+    private String direccionImg;
 
     public ControladorRegistro() {
         this.tableroData = new TableroData();
@@ -57,7 +58,7 @@ public class ControladorRegistro implements ActionListener {
             } else if (color == null) {
                 JOptionPane.showMessageDialog(null, "El color del jugador está vacío");
             } else {
-                this.tableroData.setJugadorPrincipal(new Jugador(nickname, icon, color));
+                this.tableroData.setJugadorPrincipal(new Jugador(nickname, direccionImg, color));
                 controladorPantallaInicio = new ControladorPantallaInicio(tableroData);
                 controladorPantallaInicio.iniciarPantalla();
                 registro.dispose();
@@ -89,8 +90,8 @@ public class ControladorRegistro implements ActionListener {
             }
 
         }
-
-        icon = cargarImagen("images/" + contador + ".jpg");
+        direccionImg = "images/" + contador + ".jpg";
+        icon = cargarImagen(direccionImg);
         //new ImageIcon(getClass().getClassLoader().getResource("images/" + contador + ".jpg"));
         registro.imgAvatar.setIcon(icon);
 

@@ -15,6 +15,7 @@ public class ControladorPantallaInicio implements ActionListener {
     private TableroData tableroData;
     private PantallaInicio pantallaInicio;
     private ControladorPartidaNueva controladorPartidaNueva;
+    private ControladorUnirsePartida controladorUnirsePartida;
 
     public ControladorPantallaInicio(TableroData tableroData) {
         this.tableroData = tableroData;
@@ -24,15 +25,17 @@ public class ControladorPantallaInicio implements ActionListener {
         } else {
             // Maneja el caso en que tableroData o el líder es null
             System.out.println("TableroData o el líder es null");
-        };
+        }
         this.pantallaInicio = new PantallaInicio();
 
         this.pantallaInicio.btnPartidaNueva.addActionListener(this);
         this.pantallaInicio.btnUnirse.addActionListener(this);
+
     }
 
     public void iniciarPantalla() {
         this.controladorPartidaNueva = new ControladorPartidaNueva(tableroData);
+        this.controladorUnirsePartida = new ControladorUnirsePartida(tableroData);
         this.pantallaInicio.setVisible(true);
     }
 
@@ -41,6 +44,10 @@ public class ControladorPantallaInicio implements ActionListener {
         if (e.getSource() == this.pantallaInicio.btnPartidaNueva) {
             this.pantallaInicio.dispose();
             controladorPartidaNueva.iniciarPantalla();
+        }
+        if (e.getSource() == this.pantallaInicio.btnUnirse) {
+            this.pantallaInicio.dispose();
+            controladorUnirsePartida.iniciarPantalla();
         }
     }
 

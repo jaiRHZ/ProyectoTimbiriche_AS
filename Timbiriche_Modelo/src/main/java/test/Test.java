@@ -38,7 +38,6 @@ public class Test {
 ////        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j1));
 ////        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j1));
 //        evento.enviarEvento(new EventosTimbiriche("Usuario Nuevo", j2));
-
     }
 
 }

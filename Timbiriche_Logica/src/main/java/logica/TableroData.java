@@ -4,6 +4,7 @@
  */
 package logica;
 
+import dominio.Jugador;
 import dominio.Linea;
 import intermedario.EventosTimbiriche;
 import intermedario.ProcesarEvento;
@@ -18,6 +19,7 @@ public class TableroData {
 
     List<Linea> lineas = new ArrayList<>();
     ProcesarEvento evento = new ProcesarEvento(this);
+    List<Jugador> jugadores = new ArrayList<>();
 
     public TableroData() {
         evento.iniciarJugador();
@@ -25,8 +27,20 @@ public class TableroData {
 
     public void addLinea(Linea linea) {
         this.lineas.add(linea);
-        System.out.println(linea.toString());
         evento.enviarEvento(new EventosTimbiriche("linea", linea));
+    }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void addJugador(Jugador jugador) {
+        jugadores.add(jugador);
+        for (int i = 0; i < jugadores.size(); i++) {
+            evento.enviarEvento(new EventosTimbiriche(
+                    "nuevoJugador", jugadores.get(i)));
+        }
+
     }
 
 }

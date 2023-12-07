@@ -9,15 +9,10 @@ import dominio.Cuadrado;
 import dominio.Jugador;
 import dominio.Linea;
 import dominio.Punto;
-import gestor.RecibirEvento;
 import intermedario.EventosTimbiriche;
 import intermedario.ProcesarEvento;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import observador.IObservable;
 import observador.IObservador;
@@ -38,12 +33,11 @@ public class TableroData implements IObservable {
     private Punto puntoA;
     private Punto puntoB;
     private ProcesarEvento procesarEvento;
-//    private RecibirEvento recibirEvento = new RecibirEvento();
-    private String codigoPartida;
 
     public TableroData() {
         this.observadoresPantalla = new ArrayList<>();
         this.jugadores = new ArrayList<>();
+        this.procesarEvento = new ProcesarEvento(this);
 
     }
 
@@ -59,11 +53,11 @@ public class TableroData implements IObservable {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
         this.lineas = new ArrayList<>();
         this.cuadrados = new ArrayList<>();
-        this.observadoresPantalla = new ArrayList<>();
         this.calcularDistancia();
-        this.procesarEvento = new ProcesarEvento(this);
+    }
+
+    public void iniciarJugador() {
         procesarEvento.iniciarJugador();
-        jugadores = new ArrayList<>();
     }
 
     public List<IObservador> getObservadoresPantalla() {
@@ -85,6 +79,7 @@ public class TableroData implements IObservable {
 
     public void agregarJugador(Jugador jugador) {
         this.jugadores.add(jugador);
+        actualizarTodos();
     }
 
     public void eliminarJugador(Jugador jugador) {
@@ -93,10 +88,12 @@ public class TableroData implements IObservable {
 
     public List<Jugador> getJugadores() {
         return jugadores;
+
     }
 
     public void setJugadores(List<Jugador> jugadores) {
         this.jugadores = jugadores;
+
     }
 
     public List<Punto> getPuntos() {
@@ -105,14 +102,6 @@ public class TableroData implements IObservable {
 
     public void setPuntos(List<Punto> puntos) {
         this.puntos = puntos;
-    }
-
-    public String getCodigoPartida() {
-        return codigoPartida;
-    }
-
-    public void setCodigoPartida(String codigoPartida) {
-        this.codigoPartida = codigoPartida;
     }
 
     public List<Linea> getLineas() {
@@ -125,8 +114,14 @@ public class TableroData implements IObservable {
 
     public void addLinea(Linea linea) {
         this.lineas.add(linea);
-        System.out.println(linea.toString());
         actualizarTodos();
+    }
+
+    public void mandarJugadorPrincipal() {
+        this.procesarEvento.enviarEvento(
+                new EventosTimbiriche("jugadorNuevo",
+                        this.jugadorPrincipal));
+
     }
 
     public Double getDistanciaPuntos() {

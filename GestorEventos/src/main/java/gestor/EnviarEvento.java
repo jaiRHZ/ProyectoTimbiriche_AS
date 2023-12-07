@@ -22,11 +22,11 @@ public class EnviarEvento {
     public void enviarEvento(String evento) throws IOException, TimeoutException {
         try {
             ConnectionFactory connectionFactory = new ConnectionFactory();
-            connectionFactory.setHost("192.168.100.6"); // Reemplaza con la dirección IP del servidor RabbitMQ
+            connectionFactory.setHost("192.168.100.11"); // Reemplaza con la dirección IP del servidor RabbitMQ
             connectionFactory.setUsername("guest");
             connectionFactory.setPassword("guest");
             connectionFactory.setVirtualHost("/");
- 
+
             Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel();
 

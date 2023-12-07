@@ -127,25 +127,25 @@ public class ControladorConfiguracion implements ActionListener {
     }
 
     public void cargarIcons() {
-        List<Jugador> listaDeJugadores = tableroData.getJugadores();
-        for (int i = 0; i < 3; i++) {
-            Jugador jugadorActual = listaDeJugadores.get(i);
-            if (jugadorActual != null) {
-                switch (i) {
-                    case 0:
-                        configuracion.imgJugador1.setIcon(jugadorActual.getIcono());
-                        break;
-                    case 1:
-                        configuracion.imgJugador2.setIcon(jugadorActual.getIcono());
-                        break;
-                    case 2:
-                        configuracion.imgJugador3.setIcon(jugadorActual.getIcono());
-                        break;
-                    case 3:
-                        configuracion.imgJugador4.setIcon(jugadorActual.getIcono());
-                        break;
-                }
-            }
-        }
+//        List<Jugador> listaDeJugadores = tableroData.getJugadores();
+//        for (int i = 0; i < 3; i++) {
+//            Jugador jugadorActual = listaDeJugadores.get(i);
+//            if (jugadorActual != null) {
+//                switch (i) {
+//                    case 0:
+//                        configuracion.imgJugador1.setIcon(jugadorActual.getIcono());
+//                        break;
+//                    case 1:
+//                        configuracion.imgJugador2.setIcon(jugadorActual.getIcono());
+//                        break;
+//                    case 2:
+//                        configuracion.imgJugador3.setIcon(jugadorActual.getIcono());
+//                        break;
+//                    case 3:
+//                        configuracion.imgJugador4.setIcon(jugadorActual.getIcono());
+//                        break;
+//                }
+//            }
+//        }
     }
 }

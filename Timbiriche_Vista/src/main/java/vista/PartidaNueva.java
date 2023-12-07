@@ -22,14 +22,14 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
      */
     public PartidaNueva() {
         initComponents();
-//        this.gestorPartidaNueva = new GestorPartidaNueva();
+        this.gestorPartidaNueva = new GestorPartidaNueva();
     }
 
     public void setCargarInfo(TableroData tableroData) {
+        System.out.println("asdasdasdzxcmznxbcbodfgA SJFHDKG");
         this.tableroData = tableroData;
         labelJugador.setText(tableroData.getJugadorPrincipal().getNombre());
-        labelCodigo.setText(tableroData.getCodigoPartida());
-//        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
+        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
 
     }
 
@@ -87,6 +87,7 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         labelJugador.setText("Jugador");
         background.add(labelJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
+        nombreJ3.setBackground(new java.awt.Color(0, 0, 0));
         nombreJ3.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         background.add(nombreJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, -1));
 
@@ -140,6 +141,7 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
         background.add(btnVeinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 171, -1, -1));
 
         nombreJ1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        nombreJ1.setText("jugador 1");
         background.add(nombreJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 283, -1, -1));
 
         btnTreinta.setBackground(new java.awt.Color(0, 109, 182));

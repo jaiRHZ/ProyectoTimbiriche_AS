@@ -22,7 +22,7 @@ public class ControladorFinJuego implements ActionListener{
         this.finJuego = finJuego;
         this.finJuego.btnMenuPrincipal.addActionListener(this);
         this.finJuego.btnNuevoJuego.addActionListener(this);
-        finJuego.imgGanador.setIcon(tableroData.getJugadorPrincipal().getIcono());
+//        finJuego.imgGanador.setIcon(tableroData.getJugadorPrincipal().getIcono());
     }
     
     public void iniciarPantalla(){

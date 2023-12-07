@@ -10,17 +10,14 @@ import dominio.Linea;
 import gestor.EnviarEvento;
 import gestor.RecibirEvento;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import observador.IObservable;
-import observador.IObservador;
 import observador.IObservadorEvento;
 import aplicacion.TableroData;
+import dominio.Jugador;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,13 +67,21 @@ public class ProcesarEvento implements IObservadorEvento {
     @Override
     public void nuevoMensajeRecibido(String mensaje) {
 
-        System.out.println("..........");
+        System.out.println("..........Jugador");
         EventosTimbiriche evt = gson.fromJson(mensaje, EventosTimbiriche.class);
         if (evt.getDistinatario().equals("jugadores")) {
             if (evt.getTipo().equals("linea")) {
                 Linea linea = gson.fromJson(gson.toJsonTree(evt.getObject()), Linea.class);
                 System.out.println(linea.toString());
                 tableroData.addLinea(linea);
+
+            } else if (evt.getTipo().equals("nuevoJugador")) {
+
+                Jugador jugadorNuevo = gson.fromJson(gson.toJsonTree(
+                        evt.getObject()), Jugador.class);
+                System.out.println("hola");
+                System.out.println(jugadorNuevo.toString());
+                tableroData.agregarJugador(jugadorNuevo);
 
             }
         }
