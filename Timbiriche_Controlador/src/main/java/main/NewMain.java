@@ -5,14 +5,7 @@
  */
 package main;
 
-import controlador.ControladorPartidaNueva;
-import controlador.ControladorTablero;
-import java.util.ArrayList;
-import java.util.List;
-import dominio.Jugador;
 import controlador.ControladorRegistro;
-import aplicacion.TableroData;
-import controlador.ControladorUnirsePartida;
 
 /**
  *

@@ -15,9 +15,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import observador.IObservadorEvento;
 import aplicacion.TableroData;
+import dominio.ConfiguracionTablero;
+import dominio.Cuadrado;
 import dominio.Jugador;
-import java.util.List;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,19 +73,24 @@ public class ProcesarEvento implements IObservadorEvento {
             if (evt.getTipo().equals("linea")) {
                 Linea linea = gson.fromJson(gson.toJsonTree(evt.getObject()), Linea.class);
                 System.out.println(linea.toString());
-                tableroData.addLinea(linea);
+                this.tableroData.addLinea(linea);
 
             } else if (evt.getTipo().equals("nuevoJugador")) {
 
                 Jugador jugadorNuevo = gson.fromJson(gson.toJsonTree(
                         evt.getObject()), Jugador.class);
-                System.out.println("hola");
                 System.out.println(jugadorNuevo.toString());
-                tableroData.agregarJugador(jugadorNuevo);
+                if (!tableroData.getJugadores().contains(jugadorNuevo)) {
+                    this.tableroData.agregarJugador(jugadorNuevo);
+                }
+            } else if (evt.getTipo().equals("cuadrado")) {
 
+                Cuadrado caudrado = gson.fromJson(gson.toJsonTree(
+                        evt.getObject()), Cuadrado.class);
+                this.tableroData.addCuadrado(caudrado);
             }
+
         }
 
     }
-
 }

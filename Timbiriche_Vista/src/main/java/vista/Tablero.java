@@ -9,6 +9,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import aplicacion.TableroData;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 
 /**
  *
@@ -43,23 +45,31 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     private void cargarJugadores() {
-        System.out.println("hola");
+
         for (int i = 0; i < tableroData.getJugadores().size(); i++) {
             System.out.println(i);
         }
         this.imgJugador1.setIcon(tableroData.getJugadores().get(0).getIcono());
         this.nombreJ1.setText(tableroData.getJugadores().get(0).getNombre());
+        Border borde = BorderFactory.createLineBorder(tableroData.getJugadores().get(0).getColor(), 3);
+        this.imgJugador1.setBorder(borde);
         if (tableroData.getJugadores().size() == 2) {
             imgJugador2.setIcon(tableroData.getJugadores().get(1).getIcono());
             nombreJ2.setText(tableroData.getJugadores().get(1).getNombre());
+            borde = BorderFactory.createLineBorder(tableroData.getJugadores().get(1).getColor(), 3);
+            this.imgJugador2.setBorder(borde);
         }
         if (tableroData.getJugadores().size() == 3) {
             imgJugador3.setIcon(tableroData.getJugadores().get(2).getIcono());
             nombreJ3.setText(tableroData.getJugadores().get(2).getNombre());
+            borde = BorderFactory.createLineBorder(tableroData.getJugadores().get(2).getColor(), 3);
+            this.imgJugador3.setBorder(borde);
         }
         if (tableroData.getJugadores().size() == 4) {
             imgJugador4.setIcon(tableroData.getJugadores().get(3).getIcono());
             nombreJ4.setText(tableroData.getJugadores().get(3).getNombre());
+            borde = BorderFactory.createLineBorder(tableroData.getJugadores().get(3).getColor(), 3);
+            this.imgJugador4.setBorder(borde);
         }
     }
 

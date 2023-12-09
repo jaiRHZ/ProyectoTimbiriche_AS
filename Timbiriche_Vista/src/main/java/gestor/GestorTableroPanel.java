@@ -41,7 +41,7 @@ public class GestorTableroPanel {
             Graphics2D g2d = (Graphics2D) g;
             g2d.setStroke(new BasicStroke(5));
             for (int i = 0; i < lineas.size(); i++) {
-                g.setColor(Color.ORANGE);
+                g.setColor(lineas.get(i).getColor());
                 Punto a = lineas.get(i).getPuntoA();
                 Punto b = lineas.get(i).getPuntoB();
                 g.drawLine(a.getX() + 10 / 2,
@@ -55,7 +55,7 @@ public class GestorTableroPanel {
     public void dibujarCuadrados(Graphics g, List<Cuadrado> cuadrados, int lado) {
         if (cuadrados != null) {
             for (int i = 0; i < cuadrados.size(); i++) {
-                g.setColor(Color.yellow);
+                g.setColor(cuadrados.get(i).getColor());
                 g.fillRect(cuadrados.get(i).getPuntoA().getX(),
                         cuadrados.get(i).getPuntoA().getY(),
                         lado + 10, lado + 10);

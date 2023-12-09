@@ -5,6 +5,7 @@
  */
 package dominio;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -20,11 +21,12 @@ public class Cuadrado {
     private Punto puntoB;
     private Punto puntoC;
     private Punto puntoD;
+    private Color color;
 
     public Cuadrado() {
     }
 
-    public Cuadrado(Punto puntoA, Punto puntoB, Punto puntoC, Punto puntoD) {
+    public Cuadrado(Punto puntoA, Punto puntoB, Punto puntoC, Punto puntoD, Color color) {
         List<Punto> puntos = new ArrayList<>();
         puntos.add(puntoA);
         puntos.add(puntoB);
@@ -39,6 +41,8 @@ public class Cuadrado {
         this.puntoB = puntos.get(1);
         this.puntoC = puntos.get(2);
         this.puntoD = puntos.get(3);
+
+        this.color = color;
 
     }
 
@@ -56,6 +60,14 @@ public class Cuadrado {
 
     public Punto getPuntoD() {
         return puntoD;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
 }

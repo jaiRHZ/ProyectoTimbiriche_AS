@@ -5,6 +5,7 @@
  */
 package aplicacion;
 
+import dominio.ConfiguracionTablero;
 import dominio.Cuadrado;
 import dominio.Jugador;
 import dominio.Linea;
@@ -36,9 +37,8 @@ public class TableroData implements IObservable {
 
     public TableroData() {
         this.observadoresPantalla = new ArrayList<>();
-        this.jugadores = new ArrayList<>();
         this.procesarEvento = new ProcesarEvento(this);
-
+        this.jugadores = new ArrayList<>();
     }
 
 //    public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
@@ -74,7 +74,6 @@ public class TableroData implements IObservable {
 
     public void setJugadorPrincipal(Jugador jugadorPrincipal) {
         this.jugadorPrincipal = jugadorPrincipal;
-        this.actualizarTodos();
     }
 
     public void agregarJugador(Jugador jugador) {
@@ -144,6 +143,11 @@ public class TableroData implements IObservable {
         return cuadrados;
     }
 
+    public void addCuadrado(Cuadrado cuadrado) {
+        this.cuadrados.add(cuadrado);
+        actualizarTodos();
+    }
+
     public void setCuadrados(List<Cuadrado> cuadrados) {
         this.cuadrados = cuadrados;
     }
@@ -197,6 +201,7 @@ public class TableroData implements IObservable {
         Double distanciaX = Math.pow((puntoB.getX() - puntoA.getX()), 2);
         Double distanciaY = Math.pow((puntoB.getY() - puntoA.getY()), 2);
         this.distanciaPuntos = Math.sqrt(distanciaX + distanciaY);
+        procesarEvento.enviarEvento(new EventosTimbiriche("distancia", distanciaPuntos));
     }
 
     private boolean validarLinea() {
@@ -209,9 +214,7 @@ public class TableroData implements IObservable {
         if (distancia.equals(distanciaPuntos)) {
 
             Linea linea = acomodarCordenadas(new Linea(puntoA, puntoB));
-
-            this.validarCuadrado(linea);
-            this.lineas.add(linea);
+            linea.setColor(jugadorPrincipal.getColor());
             this.procesarEvento.enviarEvento(new EventosTimbiriche("linea", linea));
             return true;
         } else {
@@ -227,98 +230,6 @@ public class TableroData implements IObservable {
         } else {
             return new Linea(puntoB, puntoA);
         }
-    }
-
-    public void validarCuadrado(Linea linea) {
-        Punto puntoCSup;
-        Punto puntoDSup;
-        Punto puntoCInf;
-        Punto puntoDInf;
-        Linea lineaSup = null;
-        Linea lineaInf;
-        Linea lineaADSuperiorPositivo;
-        Linea lineaADSuperiorNegativo;
-        Linea lineaBCInferiorPositivo;
-        Linea lineaBCInferiorNegativo;
-
-        Punto puntoBSup;
-        Punto puntoBInf;
-        Linea lineaABSuperiorPositivo;
-        Linea lineaABSuperiorNegativo;
-        Linea lineaDCSuperiorPositivo;
-        Linea lineaDCSuperiorNegativo;
-
-        if (linea.getPuntoA().getX() == linea.getPuntoB().getX()) {
-
-            puntoDSup = new Punto((int) (linea.getPuntoA().getX() + distanciaPuntos),
-                    linea.getPuntoA().getY());
-            puntoDInf = new Punto((int) (linea.getPuntoA().getX() - distanciaPuntos),
-                    linea.getPuntoA().getY());
-            puntoCSup = new Punto((int) (linea.getPuntoB().getX() + distanciaPuntos),
-                    linea.getPuntoB().getY());
-            puntoCInf = new Punto((int) (linea.getPuntoB().getX() - distanciaPuntos),
-                    linea.getPuntoB().getY());
-            lineaSup = new Linea(puntoDSup, puntoCSup);
-            lineaADSuperiorPositivo = new Linea(linea.getPuntoA(), lineaSup.getPuntoA());
-            lineaBCInferiorPositivo = new Linea(linea.getPuntoB(), lineaSup.getPuntoB());
-            lineaInf = new Linea(puntoDInf, puntoCInf);
-            lineaADSuperiorNegativo = new Linea(lineaInf.getPuntoA(), linea.getPuntoA());
-            lineaBCInferiorNegativo = new Linea(lineaInf.getPuntoB(), linea.getPuntoB());
-
-            if (validarLineaExistente(lineaSup)
-                    && validarLineaExistente(lineaADSuperiorPositivo)
-                    && validarLineaExistente(lineaBCInferiorPositivo)) {
-                JOptionPane.showMessageDialog(null, "Cuadrado");
-                System.out.println("Cuadrado");
-                cuadrados.add(new Cuadrado(linea.getPuntoA(), linea.getPuntoB(),
-                        puntoDSup, puntoCSup));
-
-            }
-            if (validarLineaExistente(lineaInf)
-                    && validarLineaExistente(lineaADSuperiorNegativo)
-                    && validarLineaExistente(lineaBCInferiorNegativo)) {
-                JOptionPane.showMessageDialog(null, "Cuadrado");
-                System.out.println("Cuadrado");
-                cuadrados.add(new Cuadrado(linea.getPuntoA(), linea.getPuntoB(),
-                        puntoDInf, puntoCInf));
-            }
-
-        } else if (linea.getPuntoA().getY() == linea.getPuntoB().getY()) {
-            puntoBSup = new Punto(linea.getPuntoA().getX(),
-                    (int) (linea.getPuntoA().getY() + distanciaPuntos));
-            puntoBInf = new Punto(linea.getPuntoA().getX(),
-                    (int) (linea.getPuntoA().getY() - distanciaPuntos));
-            puntoCSup = new Punto(linea.getPuntoB().getX(),
-                    (int) (linea.getPuntoB().getY() + distanciaPuntos));
-            puntoCInf = new Punto(linea.getPuntoB().getX(),
-                    (int) (linea.getPuntoB().getY() - distanciaPuntos));
-            lineaSup = new Linea(puntoBSup, puntoCSup);
-            lineaInf = new Linea(puntoBInf, puntoCInf);
-            lineaABSuperiorPositivo = new Linea(linea.getPuntoA(), lineaSup.getPuntoA());
-            lineaABSuperiorNegativo = new Linea(lineaInf.getPuntoA(), linea.getPuntoA());
-            lineaDCSuperiorPositivo = new Linea(linea.getPuntoB(), lineaSup.getPuntoB());
-            lineaDCSuperiorNegativo = new Linea(lineaInf.getPuntoB(), linea.getPuntoB());
-
-            if (validarLineaExistente(lineaSup)
-                    && validarLineaExistente(lineaABSuperiorPositivo)
-                    && validarLineaExistente(lineaDCSuperiorPositivo)) {
-                JOptionPane.showMessageDialog(null, "Cuadrado");
-                System.out.println("Cuadrado");
-                cuadrados.add(new Cuadrado(linea.getPuntoA(), linea.getPuntoB(),
-                        puntoBSup, puntoCSup));
-
-            }
-            if (validarLineaExistente(lineaInf)
-                    && validarLineaExistente(lineaABSuperiorNegativo)
-                    && validarLineaExistente(lineaDCSuperiorNegativo)) {
-                JOptionPane.showMessageDialog(null, "Cuadrado");
-                System.out.println("Cuadrado");
-                cuadrados.add(new Cuadrado(linea.getPuntoA(), linea.getPuntoB(),
-                        puntoBInf, puntoCInf));
-            }
-
-        }
-
     }
 
     public boolean validarLineaExistente(Linea linea) {

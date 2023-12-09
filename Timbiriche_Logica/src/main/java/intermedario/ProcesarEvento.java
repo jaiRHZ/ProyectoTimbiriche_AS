@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dominio.ConfiguracionTablero;
 import dominio.Jugador;
 import dominio.Linea;
 import gestor.EnviarEvento;
@@ -76,6 +77,10 @@ public class ProcesarEvento implements IObservadorEvento {
 
                 Jugador jugador = gson.fromJson(gson.toJsonTree(evt.getObject()), Jugador.class);
                 tableroData.addJugador(jugador);
+            } else if (evt.getTipo().equals("distancia")) {
+                Double distancia = gson.fromJson(gson.toJsonTree(evt.getObject()), Double.class);
+                System.out.println(distancia.toString());
+                tableroData.setDistanciaPuntos(distancia);
             }
         }
     }

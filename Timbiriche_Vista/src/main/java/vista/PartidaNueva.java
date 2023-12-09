@@ -26,15 +26,13 @@ public class PartidaNueva extends javax.swing.JFrame implements IObservador {
     }
 
     public void setCargarInfo(TableroData tableroData) {
-        System.out.println("asdasdasdzxcmznxbcbodfgA SJFHDKG");
         this.tableroData = tableroData;
         labelJugador.setText(tableroData.getJugadorPrincipal().getNombre());
-        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
-
     }
 
     @Override
     public void actualizar() {
+        this.gestorPartidaNueva.cargarJugadores(this, tableroData);
         this.repaint();
     }
 

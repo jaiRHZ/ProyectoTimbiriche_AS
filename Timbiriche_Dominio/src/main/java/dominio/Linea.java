@@ -6,6 +6,7 @@
 package dominio;
 
 import com.google.gson.annotations.SerializedName;
+import java.awt.Color;
 import java.util.Objects;
 
 /**
@@ -18,6 +19,8 @@ public class Linea {
     private Punto puntoA;
     @SerializedName("puntoB")
     private Punto puntoB;
+    @SerializedName("color")
+    private Color color;
 
     public Linea() {
     }
@@ -41,6 +44,14 @@ public class Linea {
 
     public void setPuntoB(Punto puntoB) {
         this.puntoB = puntoB;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     public boolean puntosConectados(Linea otraLinea) {

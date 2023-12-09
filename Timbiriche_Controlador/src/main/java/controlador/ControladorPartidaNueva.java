@@ -42,9 +42,9 @@ public class ControladorPartidaNueva implements ActionListener {
 
     public void iniciarPantalla() {
         this.tableroData.iniciarJugador();
-        this.tableroData.mandarJugadorPrincipal();
         this.partidaNueva.setCargarInfo(this.tableroData);
         this.partidaNueva.setVisible(true);
+        this.tableroData.mandarJugadorPrincipal();
 
     }
 
